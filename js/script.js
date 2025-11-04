@@ -21,7 +21,7 @@ fetch(URL)
           <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path}" class="img-fluid" alt="${data.results[i].title}">
           <p class="release-date">${data.results[i].release_date}</p>
           <h5 class="mt-2">${data.results[i].title}</h5>
-            <p class="rating">Rating: <i class="fa-regular fa-star"></i> ${data.results[i].vote_average} / 10</p>
+            <p class="rating">Avis: <i class="fa-regular fa-star"></i> ${data.results[i].vote_average} / 10</p>
         </div>
       `;
       document.querySelector(".movies-section .row").appendChild(col);

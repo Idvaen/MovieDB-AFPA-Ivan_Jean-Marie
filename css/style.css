@@ -1,23 +1,25 @@
+/* ======= INITIALISATION DE LA PAGE ============*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General Styles */
+/* =================MISE EN FORME CORPS DE PAGE =============*/
 body {
     background-color: #f5f5f5;
     font-family: Arial, sans-serif;
 }
 
-/* Header Styles */
+/* ============== STYLES POUR l'ENTETE ====================*/
 .navbar {
-    background-color: #ffffff;
+    background-color: #007bff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1;
 }
 
 .navbar-nav .nav-link {
-    color: #333;
+    color: #ffffff;
     font-weight: 500;
 }
 
@@ -25,13 +27,15 @@ body {
     color: #007bff;
 }
 
-/* Search Section */
+
+/* ================= ELEMEMENTS ZONE RECHERCHE ==============================*/
 .search-section {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     padding: 2rem 0;
-    background-image: url('../assets/images/movie-banner.jpg');
+    height: 400px;
+    /* background-image: url('../assets/images/background3.png'); */
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     position: relative;
 }
 
@@ -46,21 +50,37 @@ body {
 }
 
 .search-container {
+    padding-top: 150px;
     max-width: 600px;
+    /* width: 700px; */
     margin: 0 auto;
     position: relative;
+    /* border: #007bff 2px solid; */
     z-index: 1;
 }
 
 .search-container input {
     border-radius: 25px;
-    padding: 0.75rem 1.5rem;
-    border: none;
+    padding: 1rem 1.5rem;
+    /* border: #007bff 2px solid; */
+    /* border: none; */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+.recherche {
+    border-radius: 25px;
+    border: none;
+    padding: 10px;
+    background-color: white ;
+    
+}
+#loupe {
+    width: 25px;
+    height: 25px;
+}
 
-/* Movies Grid */
+/*============= AFFICHAGE DES FILMS Movies Grid ============== */
 .movie-card {
+    padding-top: 50px;
     transition: transform 0.3s ease;
     cursor: pointer;
     margin-bottom: 1.5rem;
@@ -71,14 +91,15 @@ body {
 }
 
 .movie-card img {
-    width: 100%;
+    width: 50%;
+    height: 50%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .movie-card h5 {
     color: #333;
-    text-align: center;
+    text-align: left;
     margin-top: 0.5rem;
     font-weight: 500;
 }
