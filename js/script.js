@@ -27,9 +27,7 @@ if (window.location.href.indexOf("index.html") !== -1) {
             data.results[i].release_date
           ).toLocaleDateString("fr")}</p>
           <h5 class="mt-2">${data.results[i].title}</h5>
-            <p class="rating">Rating: <i class="fa-regular fa-star"></i> ${
-              data.results[i].vote_average
-            } / 10</p>
+            <p class="rating">Avis: <i class="fa-regular fa-star"></i> ${data.results[i].vote_average} / 10</p>
         </div>
       `;
         document.querySelector(".movies-section .row").appendChild(col);
