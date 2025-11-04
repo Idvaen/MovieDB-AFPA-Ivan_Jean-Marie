@@ -11,10 +11,18 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h1 {
+    color: white !important;
+}
+
+h2 {
+    font-size: 1.2rem !important;
+}
+
 /* ============== STYLES POUR l'ENTETE ====================*/
 .navbar {
     background-color: #007bff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
     padding-bottom: 1.5vh !important;
 }
@@ -29,7 +37,7 @@ body {
 }
 
 .idlogo {
-    height:60px;
+    height: 60px;
 }
 
 
@@ -37,7 +45,7 @@ body {
 .search-section {
     /* background-color: #ffffff; */
     padding-top: 2vh !important;
-    
+
     height: 50vh;
     /* background-image: url('../assets/images/background3.png'); */
     background-size: cover;
@@ -57,7 +65,7 @@ body {
 } */
 
 .search-container {
-   
+
     /* margin-left: 10vh; */
     margin: auto;
     margin-top: 5vh;
@@ -78,17 +86,19 @@ body {
     /* padding: 1rem 1.5rem; */
     /* border: #007bff 2px solid; */
     /* border: none; */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .recherche {
     border-radius: 25px;
-        margin-top: 20vh;
+    margin-top: 20vh;
 
     border: none;
     padding: 10px;
-    background-color: white ;
-    
+    background-color: white;
+
 }
+
 #loupe {
     width: 25px;
     height: 25px;
@@ -110,7 +120,7 @@ body {
     width: 50%;
     height: 50%;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .movie-card h5 {
@@ -138,27 +148,46 @@ footer p {
 .description-section-page {
     padding-top: 70px;
 }
-p {
+
+.affiche_et_acteur {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40 px;
     text-align: justify;
     background-color: rgba(215, 233, 226, 0.7);
     padding-right: 1vh;
-    
-  }
-.movies-section {
-padding-top: 50vh;
+
 }
+
+.movies-section {
+    padding-top: 50vh;
+}
+
 .pourfloat {
     float: left;
     padding-right: 5px;
 }
+
 .fond_description {
     padding-top: 3vh;
-   
+    margin-bottom: 3vh;
+
     background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/oMsxZEvz9a708d49b6UdZK1KAo5.jpg);
-     background-color: rgba(16, 133, 88, 0.7);
-     background-blend-mode: lighten;
-    
-    
+    background-color: rgba(16, 133, 88, 0.7);
+    background-blend-mode: lighten;
+
+
+}
+
+.vignette {
+    width: 138px !important;
+    height: 175px !important;
+    display: flex;
+    align-self: center;
+}
+
+.card {
+    width: 25vh !important;
+    margin-bottom: 3vh !important;
+
+
 }

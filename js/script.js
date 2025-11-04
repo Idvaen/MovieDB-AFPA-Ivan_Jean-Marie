@@ -175,11 +175,11 @@ fetch("/details.json")
     col.className = "col-12";
     col.innerHTML = `
         <div class="movie-description">
-          <h3>Description de ${data.title}</h3>
+          <h1>Description du film ${data.title}</h1>
           <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
             data.poster_path
           }" class="img-fluid pourfloat" alt="${data.title}"></a>
-          <p><strong>Synopsis:</strong> ${data.overview}
+          <p class="affiche_et_acteur"><strong>Synopsis:</strong> ${data.overview}
           <br><strong>Date de sortie:</strong> ${new Date(
             data.release_date
           ).toLocaleDateString("fr")}
@@ -205,13 +205,14 @@ fetch("/credits.json")
       col.className = "col-3 text-center";
       // "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
       col.innerHTML = `
-        <div class="cast-member">
+        <div class="cast-member col-12 col-md-6 col-lg-4 card mx-auto">
+
         ${
           data.cast[i].profile_path === null
-            ? `<img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
-            : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
+            ? `<img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg" class="vignette card-img-top img-fluid mb-2" alt="${data.cast[i].name}">`
+            : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="vignette img-fluid card-img-top mb-2" alt="${data.cast[i].name}">`
         }
-          <h5>${data.cast[i].name}</h5>
+          <h2>${data.cast[i].name}</h2>
           
           <p class="text-muted text-center">comme ${data.cast[i].character}</p>
         </div>`;
