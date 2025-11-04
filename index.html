@@ -13,12 +13,12 @@
 
 <body>
     <!-- Header Navigation -->
-    <div class="debut fixed-top border border-danger">
+    <div class="fixed-top">
         <header>
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg fixed-top border">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.html">
-                        <img src="assets/images/logo.png" alt="IJ Logo" height="30">
+                        <img class="idlogo" src="assets/images/logo.png" alt="IJ Logo" >
                     </a>
                     <div class="navbar-nav">
                         <a class="nav-link" href="index.html">Films</a>
@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="search-container">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for movies...">
+                        <input type="text" class="form-control" placeholder="Chercher un film...">
                         <button class="recherche" type="button">
                             <img id="loupe" src="/assets/images/loupe.png" alt="">
                             <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
@@ -44,17 +44,17 @@
         </section>
     </div>
 
-    <!-- Movies Grid Section -->
+    <!-- PARTIE AFFICHAGE DES AFFICHES DE FILM -->
     <section class="movies-section">
       <div class="container">
         <div class="row g-4"></div>
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- PIED DE PAGE -->
     <footer class="mt-5 py-3 text-center">
         <p class="mb-1">Copyright © Les productions Ivan & Jean-Marie - 2025 - Ivan © Jean-Marie</p>
-        <p class="mb-0">See more films</p>
+        
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
