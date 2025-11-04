@@ -16,6 +16,7 @@ body {
     background-color: #007bff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 1;
+    padding-bottom: 1.5vh !important;
 }
 
 .navbar-nav .nav-link {
@@ -27,47 +28,62 @@ body {
     color: #007bff;
 }
 
+.idlogo {
+    height:60px;
+}
+
 
 /* ================= ELEMEMENTS ZONE RECHERCHE ==============================*/
 .search-section {
     /* background-color: #ffffff; */
-    padding: 2rem 0;
-    height: 400px;
+    padding-top: 2vh !important;
+    
+    height: 50vh;
     /* background-image: url('../assets/images/background3.png'); */
     background-size: cover;
     /* background-position: center; */
-    position: relative;
+    /* border: solid 2px red; */
+    /* position: relative; */
 }
 
-.search-section::before {
+/* .search-section::before {
     content: '';
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-}
+} */
 
 .search-container {
-    padding-top: 150px;
-    max-width: 600px;
+   
+    /* margin-left: 10vh; */
+    margin: auto;
+    margin-top: 5vh;
+    text-align: center;
+    /* padding-top: 150px; */
+    min-width: 60vh;
+    max-width: 60vh;
     /* width: 700px; */
-    margin: 0 auto;
-    position: relative;
+    /* margin: 0 auto; */
+    /* position: relative; */
     /* border: #007bff 2px solid; */
     z-index: 1;
 }
 
 .search-container input {
     border-radius: 25px;
-    padding: 1rem 1.5rem;
+    margin-top: 20vh;
+    /* padding: 1rem 1.5rem; */
     /* border: #007bff 2px solid; */
     /* border: none; */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .recherche {
     border-radius: 25px;
+        margin-top: 20vh;
+
     border: none;
     padding: 10px;
     background-color: white ;
@@ -80,7 +96,7 @@ body {
 
 /*============= AFFICHAGE DES FILMS Movies Grid ============== */
 .movie-card {
-    padding-top: 50px;
+    padding-top: 3vh;
     transition: transform 0.3s ease;
     cursor: pointer;
     margin-bottom: 1.5rem;
@@ -100,7 +116,7 @@ body {
 .movie-card h5 {
     color: #333;
     text-align: left;
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
     font-weight: 500;
 }
 
@@ -115,4 +131,18 @@ footer {
 footer p {
     margin: 0;
     padding: 0.5rem 0;
+}
+
+/* ================ PAGE DESCRIPTION ====================*/
+
+.description-section-page {
+    padding-top: 70px;
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40 px;
+    text-align: justify;
+  }
+.movies-section {
+padding-top: 50vh;
 }
