@@ -1,1 +1,1 @@
-Créateurs: Ivan Denyson, Jean-Marie Gassiès.
+Créateurs: Ivan Denysov, Jean-Marie Gassiès.
