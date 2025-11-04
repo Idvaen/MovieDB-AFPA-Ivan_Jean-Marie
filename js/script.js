@@ -178,12 +178,12 @@ fetch("/details.json")
           <h3>Description de ${data.title}</h3>
           <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
             data.poster_path
-          }" class="img-fluid" alt="${data.title}"></a>
-          <p><strong>Synopsis:</strong> ${data.overview}</p>
-          <p><strong>Date de sortie:</strong> ${new Date(
+          }" class="img-fluid pourfloat" alt="${data.title}"></a>
+          <p><strong>Synopsis:</strong> ${data.overview}
+          <br><strong>Date de sortie:</strong> ${new Date(
             data.release_date
-          ).toLocaleDateString("fr")}</p>
-          <p><strong>Note:</strong> ${data.vote_average} / 10</p>
+          ).toLocaleDateString("fr")}
+          <br><strong>Note:</strong> ${data.vote_average} / 10</p>
         </div>
       `;
     document.querySelector(".description-section-page .row").appendChild(col);
@@ -212,7 +212,8 @@ fetch("/credits.json")
             : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
         }
           <h5>${data.cast[i].name}</h5>
-          <p class="text-muted">comme ${data.cast[i].character}</p>
+          
+          <p class="text-muted text-center">comme ${data.cast[i].character}</p>
         </div>`;
       console.log(data.cast[i].character);
       document.querySelector(".cast-section .row").appendChild(col);
