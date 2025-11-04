@@ -171,15 +171,17 @@ fetch("/details.json")
     // console.log(data.poster_path);
     // console.log(data.vote_average);
     // console.log(data.overview);
+    // console.log(data.genres.map((genre) => genre.name).join(", "));
     let col = document.createElement("div");
     col.className = "col-12";
     col.innerHTML = `
         <div class="movie-description">
-          <h3>Description de ${data.title}</h3>
+          <h1>Description de ${data.title}</h1>
           <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
             data.poster_path
           }" class="img-fluid pourfloat" alt="${data.title}"></a>
-          <p><strong>Synopsis:</strong> ${data.overview}
+          <p><strong>Genres:</strong> ${data.genres.map((genre) => genre.name).join(", ")}<br>
+          <strong>Synopsis:</strong> ${data.overview}
           <br><strong>Date de sortie:</strong> ${new Date(
             data.release_date
           ).toLocaleDateString("fr")}
@@ -212,10 +214,9 @@ fetch("/credits.json")
             : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
         }
           <h5>${data.cast[i].name}</h5>
-          
           <p class="text-muted text-center">comme ${data.cast[i].character}</p>
         </div>`;
-      console.log(data.cast[i].character);
+      // console.log(data.cast[i].character);
       document.querySelector(".cast-section .row").appendChild(col);
     }
   })
