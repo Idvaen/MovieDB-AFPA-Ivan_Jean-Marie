@@ -19,7 +19,7 @@ if (window.location.href.indexOf("index.html") !== -1) {
         col.innerHTML = `
         <div class="movie-card" data-movie-id="${data.results[i].id}">
           <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path}" class="img-fluid movie-img" alt="${data.results[i].title}" data-movie-id="${data.results[i].id}">
-          <p class="release-date">${data.results[i].release_date}</p>
+          <p class="release-date">${new Date(data.results[i].release_date).toLocaleDateString("fr")}</p>
           <h5 class="mt-2">${data.results[i].title}</h5>
             <p class="rating">Rating: <i class="fa-regular fa-star"></i> ${data.results[i].vote_average} / 10</p>
         </div>
@@ -64,7 +64,7 @@ if (window.location.href.indexOf("descriptions.html") !== -1) {
           <h3>Description de ${data.results[i].title}</h3>
           <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path}" class="img-fluid" alt="${data.results[i].title}"></a>
           <p><strong>Synopsis:</strong> ${data.results[i].overview}</p>
-          <p><strong>Date de sortie:</strong> ${data.results[i].release_date}</p>
+          <p><strong>Date de sortie:</strong> ${new Date(data.results[i].release_date).toLocaleDateString("fr")}</p>
           <p><strong>Note:</strong> ${data.results[i].vote_average} / 10</p>
         </div>
       `;
@@ -127,7 +127,7 @@ function descriptionMovie() {
             <div class="col-md-8">
               <h2>${movie.title}</h2>
               <p><strong>Synopsis:</strong> ${movie.overview}</p>
-              <p><strong>Date de sortie:</strong> ${movie.release_date}</p>
+              <p><strong>Date de sortie:</strong> ${new Date(movie.release_date).toLocaleDateString("fr")}</p>
               <p><strong>Note:</strong> ${movie.vote_average} / 10</p>
             </div>
           </div>
