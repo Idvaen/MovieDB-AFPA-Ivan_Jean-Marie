@@ -142,7 +142,23 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40 px;
     text-align: justify;
+    background-color: rgba(215, 233, 226, 0.7);
+    padding-right: 1vh;
+    
   }
 .movies-section {
 padding-top: 50vh;
+}
+.pourfloat {
+    float: left;
+    padding-right: 5px;
+}
+.fond_description {
+    padding-top: 3vh;
+   
+    background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/oMsxZEvz9a708d49b6UdZK1KAo5.jpg);
+     background-color: rgba(16, 133, 88, 0.7);
+     background-blend-mode: lighten;
+    
+    
 }
