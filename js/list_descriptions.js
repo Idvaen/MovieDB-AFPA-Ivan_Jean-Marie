@@ -21,15 +21,15 @@ if (window.location.href.indexOf("descriptions.html") !== -1) {
         col.className = "col-12";
         col.innerHTML = `
         <div class="movie-description">
-          <h3>Description de ${data.results[i].title}</h3>
-          <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
-            data.results[i].poster_path
-          }" class="img-fluid" alt="${data.results[i].title}"></a>
-          <p><strong>Synopsis:</strong> ${data.results[i].overview}</p>
-          <p><strong>Date de sortie:</strong> ${new Date(
+          <h2 class="titre_de_listes">Description de ${data.results[i].title}</h2>
+          <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path
+          }" class="img-fluid pourfloat size_poster" alt="${data.results[i].title}"></a>
+          <p class="affiche_et_acteur" style="background-color: white;"><strong>Genres:</strong> ${data.results[i].genre_ids.join(", ")}
+          <br> <strong>Synopsis:</strong> ${data.results[i].overview}
+          <br><strong>Date de sortie:</strong> ${new Date(
             data.results[i].release_date
-          ).toLocaleDateString("fr")}</p>
-          <p><strong>Note:</strong> ${data.results[i].vote_average} / 10</p>
+          ).toLocaleDateString("fr")}
+          <br><strong>Note:</strong> ${data.results[i].vote_average} / 10</p>
         </div>
       `;
         document.querySelector(".description-section .row").appendChild(col);

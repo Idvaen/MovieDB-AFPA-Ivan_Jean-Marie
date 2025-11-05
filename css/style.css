@@ -22,10 +22,11 @@
 
     h1 {
         color: white !important;
+        display: none;
     }
 
     h2 {
-        font-size: 1.2rem !important;
+        font-size: 1rem !important;
     }
 
 /* ============== STYLES POUR l'ENTETE ====================*/
@@ -52,50 +53,29 @@
 
 /* ================= ELEMEMENTS ZONE RECHERCHE ==============================*/
     .search-section {
-        /* background-color: #ffffff; */
         padding-top: 2vh !important;
 
         height: 50vh;
-        /* background-image: url('../assets/images/background3.png'); */
         background-size: cover;
         z-index: -1 !important;
-        /* background-position: center; */
-        /* border: solid 2px red; */
-        /* position: relative; */
+
     }
 
-/* .search-section::before {
-    content: '';
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-} */
+
 
     .search-container {
 
-        /* margin-left: 10vh; */
         margin: auto;
         margin-top: 5vh;
         text-align: center;
-        /* padding-top: 150px; */
         min-width: 60vh;
         max-width: 60vh;
-        /* width: 700px; */
-        /* margin: 0 auto; */
-        /* position: relative; */
-        /* border: #007bff 2px solid; */
         z-index: 1;
     }
 
     .search-container input {
         border-radius: 25px;
         margin-top: 20vh;
-        /* padding: 1rem 1.5rem; */
-        /* border: #007bff 2px solid; */
-        /* border: none; */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
@@ -106,7 +86,6 @@
         border: none;
         padding: 10px;
         background-color: white;
-
     }
 
     #loupe {
@@ -136,7 +115,6 @@
     .movie-card h5 {
         color: #333;
         text-align: left;
-        /* margin-top: 0.5rem; */
         font-weight: 500;
     }
 
@@ -159,13 +137,19 @@
         padding-top: 70px;
     }
 
+    .synopsis{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40 px;
+        text-align: justify;
+        padding-right: 1vh;
+    }
+
     .affiche_et_acteur {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 40 px;
         text-align: justify;
         background-color: rgba(215, 233, 226, 0.7);
         padding-right: 1vh;
-
     }
 
     .movies-section {
@@ -189,8 +173,6 @@
         background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/oMsxZEvz9a708d49b6UdZK1KAo5.jpg);
         background-color: rgba(16, 133, 88, 0.7);
         background-blend-mode: lighten;
-
-
     }
 
     .vignette {
@@ -203,6 +185,10 @@
     .card {
         width: 25vh !important;
         margin-bottom: 3vh !important;
+    }
+    .titre_de_listes {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 3vh !important;
 
 
     }

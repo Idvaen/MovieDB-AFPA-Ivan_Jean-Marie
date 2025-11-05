@@ -3,6 +3,20 @@
 let URL = "/data.json";
 // let affiche_table = document.getElementById("affiche_table");
 
+
+// Appel de la fonction
+creerArriereplan();
+
+
+
+// fonction principale
+function creerArriereplan() {
+    let numero;
+    let ajoutBkgrd = document.getElementById("imgBgrnd");
+    numero = Math.floor(Math.random() * 3) + 1;
+    ajoutBkgrd.setAttribute("style",`background-image: url(/assets/images/background${numero}.png);`);
+}
+
 //Partie index pour tous les films
 if (window.location.href.indexOf("index.html") !== -1) {
   fetch(URL)
