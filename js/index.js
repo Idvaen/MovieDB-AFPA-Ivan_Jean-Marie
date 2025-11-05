@@ -1,6 +1,6 @@
 "use strict";
 
-let URL = "/data.json";
+let URL = "/data/data.json";
 // let affiche_table = document.getElementById("affiche_table");
 
 //Partie index pour tous les films
@@ -40,15 +40,15 @@ if (window.location.href.indexOf("index.html") !== -1) {
           img.addEventListener("click", function (e) {
             // Prevent any default behaviour (if any)
             e.preventDefault();
-            // const movieId = this.dataset.movieId;
+            const movieId = this.dataset.movieId;
             // Small delay to allow CSS feedback or prevent accidental double-clicks
-            // setTimeout(() => {
-            //   window.location.href = `description.html?id=${movieId}`;
-            // }, 500);
-
             setTimeout(() => {
-              window.location.href = `description.html`;
+              window.location.href = `description.html?id=${movieId}`;
             }, 500);
+
+            // setTimeout(() => {
+            //   window.location.href = `description.html`;
+            // }, 500);
           });
         }
       }
@@ -56,4 +56,72 @@ if (window.location.href.indexOf("index.html") !== -1) {
     .catch(function (error) {
       console.log("La requête GET a échoué : ", error);
     });
+}
+
+
+function descriptionMovie() {
+  console.log("descriptionMovie() called");
+  // Read movie id from URL params
+  const urlParams = new URLSearchParams(window.location.search);
+  const movieId = urlParams.get("id");
+  if (!movieId) {
+    console.error("No movie id provided in URL");
+    return;
+  }
+
+  // Fetch list (data.json) and find the movie by id
+  fetch(URL)
+    .then((response) => response.json())
+    .then(function (data) {
+      const movie = data.results.find((m) => String(m.id) === String(movieId));
+      if (!movie) {
+        console.error("Movie not found for id", movieId);
+        return;
+      }
+
+      console.log("Rendering description for movie:", movie);
+
+      // Prefer an element with id 'description-movie' if present, otherwise use .description-section .row
+      let container = document.getElementById("description-movie");
+      if (!container) {
+        container = document.querySelector(".description-section .row");
+      }
+      if (!container) {
+        console.error("No container found to render movie description");
+        return;
+      }
+
+      // Clear and render
+      container.innerHTML = "";
+      const col = document.createElement("div");
+      col.className = "col-12";
+      col.innerHTML = `
+        <div class="movie-description">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
+                movie.poster_path
+              }" alt="${movie.title}" class="img-fluid" />
+            </div>
+            <div class="col-md-8">
+              <h2>${movie.title}</h2>
+              <p><strong>Synopsis:</strong> ${movie.overview}</p>
+              <p><strong>Date de sortie:</strong> ${new Date(
+                movie.release_date
+              ).toLocaleDateString("fr")}</p>
+              <p><strong>Note:</strong> ${movie.vote_average} / 10</p>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(col);
+    })
+    .catch(function (error) {
+      console.error("La requête GET a échoué : ", error);
+    });
+}
+
+// // If we are on the single description page, auto-run the renderer
+if (window.location.href.indexOf("description.html") !== -1) {
+  document.addEventListener("DOMContentLoaded", descriptionMovie);
 }

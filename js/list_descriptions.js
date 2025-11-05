@@ -1,9 +1,7 @@
 "use strict";
 
-let URL = "/data.json";
+let URL = "/data/data.json";
 // let affiche_table = document.getElementById("affiche_table");
-
-
 
 //Partie description pour chaque film
 if (window.location.href.indexOf("descriptions.html") !== -1) {
@@ -32,16 +30,32 @@ if (window.location.href.indexOf("descriptions.html") !== -1) {
           <br><strong>Note:</strong> ${data.results[i].vote_average} / 10</p>
         </div>
       `;
-        document.querySelector(".description-section .row").appendChild(col);
-        // If you want these description items to open the single description page when clicked,
-        // navigate with the movie id in the query string (same pattern as above).
-        // col.addEventListener("click", function (e) {
-        //   // Use dataset index if you add it; for now just prevent default and no-op
-        //   e.preventDefault();
-        // });
+      document.querySelector(".description-section .row").appendChild(col);
+      // If you want these description items to open the single description page when clicked,
+      // navigate with the movie id in the query string (same pattern as above).
+      const img = col.querySelector(".movie-img");
+      if (img) {
+        img.addEventListener("click", function (e) {
+          // Prevent any default behaviour (if any)
+          e.preventDefault();
+          const movieId = this.dataset.movieId;
+          // Small delay to allow CSS feedback or prevent accidental double-clicks
+          setTimeout(() => {
+            window.location.href = `description.html?id=${movieId}`;
+          }, 500);
+
+          // setTimeout(() => {
+          //   window.location.href = `description.html`;
+          // }, 500);
+        });
       }
-    })
-    .catch(function (error) {
-      console.log("La requête GET a échoué : ", error);
-    });
+    }
+  })
+  .catch(function (error) {
+    console.log("La requête GET a échoué : ", error);
+  });
+
+// // If we are on the single description page, auto-run the renderer
+if (window.location.href.indexOf("description.html") !== -1) {
+  document.addEventListener("DOMContentLoaded", descriptionMovie);
 }

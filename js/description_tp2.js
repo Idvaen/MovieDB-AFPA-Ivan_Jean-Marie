@@ -1,10 +1,10 @@
 "use strict";
 
-let URL = "/data.json";
+let URL = "/data/data.json";
 // let affiche_table = document.getElementById("affiche_table");
 
 // Fetch list (details.json) for movie Matrix
-fetch("/details.json")
+fetch("/data/details.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Details data fetched: ", data);
@@ -23,7 +23,9 @@ fetch("/details.json")
           <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
             data.poster_path
           }" class="img-fluid pourfloat" alt="${data.title}"></a>
-          <p class="affiche_et_acteur"><strong>Genres:</strong> ${data.genres.map((genre) => genre.name).join(", ")}<br>
+          <p class="affiche_et_acteur"><strong>Genres:</strong> ${data.genres
+            .map((genre) => genre.name)
+            .join(", ")}<br>
           <strong>Synopsis:</strong> ${data.overview}
           <br><strong>Date de sortie:</strong> ${new Date(
             data.release_date
@@ -38,7 +40,7 @@ fetch("/details.json")
   });
 
 // Fetch list (credits.json) for movie Matrix
-fetch("/credits.json")
+fetch("/data/credits.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Credits data fetched: ", data.cast);
@@ -69,7 +71,4 @@ fetch("/credits.json")
     console.error("La requête GET a échoué : ", error);
   });
 
-// If we are on the single description page, auto-run the renderer
-if (window.location.href.indexOf("description.html") !== -1) {
-  document.addEventListener("DOMContentLoaded", descriptionMovie);
-}
+

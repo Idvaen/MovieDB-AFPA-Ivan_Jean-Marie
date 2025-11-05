@@ -1,7 +1,11 @@
 "use strict";
 
-let URL = "/data.json";
-// let affiche_table = document.getElementById("affiche_table");
+let URL = "/data/data.json";
+
+
+// CREATION D'UNE FONCTION ALEATOIRE POUR L'AFFICHAGE DE L'IMAGE DE FOND DE LA PAGE D'ACCEUIL
+// Appel de la fonction
+creerArriereplan();
 
 
 // Appel de la fonction
@@ -50,15 +54,15 @@ if (window.location.href.indexOf("index.html") !== -1) {
           img.addEventListener("click", function (e) {
             // Prevent any default behaviour (if any)
             e.preventDefault();
-            // const movieId = this.dataset.movieId;
+            const movieId = this.dataset.movieId;
             // Small delay to allow CSS feedback or prevent accidental double-clicks
-            // setTimeout(() => {
-            //   window.location.href = `description.html?id=${movieId}`;
-            // }, 500);
-
             setTimeout(() => {
-              window.location.href = `description.html`;
+              window.location.href = `description.html?id=${movieId}`;
             }, 500);
+
+            // setTimeout(() => {
+            //   window.location.href = `description.html?id=${this.dataset.movieId}`;
+            // }, 500);
           });
         }
       }
@@ -238,4 +242,12 @@ fetch("/credits.json")
 // If we are on the single description page, auto-run the renderer
 if (window.location.href.indexOf("description.html") !== -1) {
   document.addEventListener("DOMContentLoaded", descriptionMovie);
+}
+
+
+function creerArriereplan() {
+    let numero;
+    let ajoutBkgrd = document.getElementById("imgBgrnd");
+    numero = Math.floor(Math.random() * 3) + 1;
+    ajoutBkgrd.setAttribute("style",`background-image: url(/assets/images/background${numero}.png);`);
 }
