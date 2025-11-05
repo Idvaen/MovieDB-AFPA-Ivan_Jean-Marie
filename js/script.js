@@ -180,7 +180,7 @@ fetch("/details.json")
           <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
             data.poster_path
           }" class="img-fluid pourfloat" alt="${data.title}"></a>
-          <p><strong>Genres:</strong> ${data.genres.map((genre) => genre.name).join(", ")}<br>
+          <p class="affiche_et_acteur"><strong>Genres:</strong> ${data.genres.map((genre) => genre.name).join(", ")}<br>
           <strong>Synopsis:</strong> ${data.overview}
           <br><strong>Date de sortie:</strong> ${new Date(
             data.release_date
