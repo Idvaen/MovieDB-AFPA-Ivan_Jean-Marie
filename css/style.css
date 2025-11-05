@@ -1,65 +1,68 @@
 /* STRUCTURATION DU FICHIER STYLE.css */
     /* initialisation de la page */
     /* initialisation des éléments du DOM */
-
+    /* Creation des styles pour l'entête */
+    /* Création des styles pour la zone de recherche */
+    /* Création des styles AFFICHAGE DES FILMS Movies Grid */
+    /* Création des styles pour PAGE DESCRIPTION */
 
 
 /* ======= INITIALISATION DE LA PAGE ============*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
 /* =================MISE EN FORME CORPS DE PAGE =============*/
-body {
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
-}
+    body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+    }
 
-h1 {
-    color: white !important;
-}
+    h1 {
+        color: white !important;
+    }
 
-h2 {
-    font-size: 1.2rem !important;
-}
+    h2 {
+        font-size: 1.2rem !important;
+    }
 
 /* ============== STYLES POUR l'ENTETE ====================*/
-.navbar {
-    background-color: #007bff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    padding-bottom: 1.5vh !important;
-}
+    .navbar {
+        background-color: #007bff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        padding-bottom: 1.5vh !important;
+    }
 
-.navbar-nav .nav-link {
-    color: #ffffff;
-    font-weight: 500;
-}
+    .navbar-nav .nav-link {
+        color: #ffffff;
+        font-weight: 500;
+    }
 
-.navbar-nav .nav-link.active {
-    color: #007bff;
-}
+    .navbar-nav .nav-link.active {
+        color: #007bff;
+    }
 
-.idlogo {
-    height: 60px;
-}
+    .idlogo {
+        height: 60px;
+    }
 
 
 /* ================= ELEMEMENTS ZONE RECHERCHE ==============================*/
-.search-section {
-    /* background-color: #ffffff; */
-    padding-top: 2vh !important;
+    .search-section {
+        /* background-color: #ffffff; */
+        padding-top: 2vh !important;
 
-    height: 50vh;
-    /* background-image: url('../assets/images/background3.png'); */
-    background-size: cover;
-    z-index: -1 !important;
-    /* background-position: center; */
-    /* border: solid 2px red; */
-    /* position: relative; */
-}
+        height: 50vh;
+        /* background-image: url('../assets/images/background3.png'); */
+        background-size: cover;
+        z-index: -1 !important;
+        /* background-position: center; */
+        /* border: solid 2px red; */
+        /* position: relative; */
+    }
 
 /* .search-section::before {
     content: '';
@@ -71,135 +74,135 @@ h2 {
     background: rgba(0, 0, 0, 0.5);
 } */
 
-.search-container {
+    .search-container {
 
-    /* margin-left: 10vh; */
-    margin: auto;
-    margin-top: 5vh;
-    text-align: center;
-    /* padding-top: 150px; */
-    min-width: 60vh;
-    max-width: 60vh;
-    /* width: 700px; */
-    /* margin: 0 auto; */
-    /* position: relative; */
-    /* border: #007bff 2px solid; */
-    z-index: 1;
-}
+        /* margin-left: 10vh; */
+        margin: auto;
+        margin-top: 5vh;
+        text-align: center;
+        /* padding-top: 150px; */
+        min-width: 60vh;
+        max-width: 60vh;
+        /* width: 700px; */
+        /* margin: 0 auto; */
+        /* position: relative; */
+        /* border: #007bff 2px solid; */
+        z-index: 1;
+    }
 
-.search-container input {
-    border-radius: 25px;
-    margin-top: 20vh;
-    /* padding: 1rem 1.5rem; */
-    /* border: #007bff 2px solid; */
-    /* border: none; */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+    .search-container input {
+        border-radius: 25px;
+        margin-top: 20vh;
+        /* padding: 1rem 1.5rem; */
+        /* border: #007bff 2px solid; */
+        /* border: none; */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-.recherche {
-    border-radius: 25px;
-    margin-top: 20vh;
+    .recherche {
+        border-radius: 25px;
+        margin-top: 20vh;
 
-    border: none;
-    padding: 10px;
-    background-color: white;
+        border: none;
+        padding: 10px;
+        background-color: white;
 
-}
+    }
 
-#loupe {
-    width: 25px;
-    height: 25px;
-}
+    #loupe {
+        width: 25px;
+        height: 25px;
+    }
 
 /*============= AFFICHAGE DES FILMS Movies Grid ============== */
-.movie-card {
-    padding-top: 3vh;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    margin-bottom: 1.5rem;
-}
+    .movie-card {
+        padding-top: 3vh;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        margin-bottom: 1.5rem;
+    }
 
-.movie-card:hover {
-    transform: translateY(-5px);
-}
+    .movie-card:hover {
+        transform: translateY(-5px);
+    }
 
-.movie-card img {
-    width: 50%;
-    height: 50%;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+    .movie-card img {
+        width: 50%;
+        height: 50%;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
 
-.movie-card h5 {
-    color: #333;
-    text-align: left;
-    /* margin-top: 0.5rem; */
-    font-weight: 500;
-}
+    .movie-card h5 {
+        color: #333;
+        text-align: left;
+        /* margin-top: 0.5rem; */
+        font-weight: 500;
+    }
 
 /* Footer */
-footer {
-    background-color: #ffffff;
-    color: #666;
-    border-top: 1px solid #eee;
-    padding: 1rem 0;
-}
+    footer {
+        background-color: #ffffff;
+        color: #666;
+        border-top: 1px solid #eee;
+        padding: 1rem 0;
+    }
 
-footer p {
-    margin: 0;
-    padding: 0.5rem 0;
-}
+    footer p {
+        margin: 0;
+        padding: 0.5rem 0;
+    }
 
 /* ================ PAGE DESCRIPTION ====================*/
 
-.description-section-page {
-    padding-top: 70px;
-}
+    .description-section-page {
+        padding-top: 70px;
+    }
 
-.affiche_et_acteur {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40 px;
-    text-align: justify;
-    background-color: rgba(215, 233, 226, 0.7);
-    padding-right: 1vh;
+    .affiche_et_acteur {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40 px;
+        text-align: justify;
+        background-color: rgba(215, 233, 226, 0.7);
+        padding-right: 1vh;
 
-}
+    }
 
-.movies-section {
-    padding-top: 50vh;
-}
+    .movies-section {
+        padding-top: 50vh;
+    }
 
-.pourfloat {
-    float: left;
-    padding-right: 3vh;
-}
+    .pourfloat {
+        float: left;
+        padding-right: 3vh;
+    }
 
-.size_poster{
-    width: 200px;
-    padding-bottom: 3vh;
-}
+    .size_poster{
+        width: 200px;
+        padding-bottom: 3vh;
+    }
 
-.fond_description {
-    padding-top: 3vh;
-    margin-bottom: 3vh;
-    
-    background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/oMsxZEvz9a708d49b6UdZK1KAo5.jpg);
-    background-color: rgba(16, 133, 88, 0.7);
-    background-blend-mode: lighten;
-
-
-}
-
-.vignette {
-    width: 138px !important;
-    height: 175px !important;
-    display: flex;
-    align-self: center;
-}
-
-.card {
-    width: 25vh !important;
-    margin-bottom: 3vh !important;
+    .fond_description {
+        padding-top: 3vh;
+        margin-bottom: 3vh;
+        
+        background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/oMsxZEvz9a708d49b6UdZK1KAo5.jpg);
+        background-color: rgba(16, 133, 88, 0.7);
+        background-blend-mode: lighten;
 
 
-}
+    }
+
+    .vignette {
+        width: 138px !important;
+        height: 175px !important;
+        display: flex;
+        align-self: center;
+    }
+
+    .card {
+        width: 25vh !important;
+        margin-bottom: 3vh !important;
+
+
+    }
