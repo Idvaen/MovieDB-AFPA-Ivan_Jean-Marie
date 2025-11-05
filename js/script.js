@@ -18,18 +18,15 @@ if (window.location.href.indexOf("index.html") !== -1) {
         col.className = "col-6 col-md-4 col-lg-3";
         col.innerHTML = `
         <div class="movie-card" data-movie-id="${data.results[i].id}">
-          <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
-            data.results[i].poster_path
-          }" class="img-fluid movie-img" alt="${
-          data.results[i].title
-        }" data-movie-id="${data.results[i].id}">
+          <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path
+          }" class="img-fluid movie-img" alt="${data.results[i].title
+          }" data-movie-id="${data.results[i].id}">
           <p class="release-date">${new Date(
             data.results[i].release_date
           ).toLocaleDateString("fr")}</p>
           <h5 class="mt-2">${data.results[i].title}</h5>
-            <p class="rating">Avis: <i class="fa-regular fa-star"></i> ${
-              data.results[i].vote_average
-            } / 10</p>
+            <p class="rating">Avis: <i class="fa-regular fa-star"></i> ${data.results[i].vote_average
+          } / 10</p>
         </div>
       `;
         document.querySelector(".movies-section .row").appendChild(col);
@@ -69,19 +66,20 @@ if (window.location.href.indexOf("descriptions.html") !== -1) {
         // console.log(data.results[i].poster_path);
         // console.log(data.results[i].vote_average);
         // console.log(data.results[i].overview);
+        console.log(data.results[i].genre_ids.join(", "));
         let col = document.createElement("div");
         col.className = "col-12";
         col.innerHTML = `
         <div class="movie-description">
           <h3>Description de ${data.results[i].title}</h3>
-          <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
-            data.results[i].poster_path
-          }" class="img-fluid" alt="${data.results[i].title}"></a>
-          <p><strong>Synopsis:</strong> ${data.results[i].overview}</p>
-          <p><strong>Date de sortie:</strong> ${new Date(
+          <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path
+          }" class="img-fluid pourfloat size_poster" alt="${data.results[i].title}"></a>
+          <p class="affiche_et_acteur" style="background-color: white;"><strong>Genres:</strong> ${data.results[i].genre_ids.join(", ")}
+          <br> <strong>Synopsis:</strong> ${data.results[i].overview}
+          <br><strong>Date de sortie:</strong> ${new Date(
             data.results[i].release_date
-          ).toLocaleDateString("fr")}</p>
-          <p><strong>Note:</strong> ${data.results[i].vote_average} / 10</p>
+          ).toLocaleDateString("fr")}
+          <br><strong>Note:</strong> ${data.results[i].vote_average} / 10</p>
         </div>
       `;
         document.querySelector(".description-section .row").appendChild(col);
@@ -177,14 +175,13 @@ fetch("/details.json")
     col.innerHTML = `
         <div class="movie-description">
           <h1>Description de ${data.title}</h1>
-          <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
-            data.poster_path
-          }" class="img-fluid pourfloat" alt="${data.title}"></a>
+          <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.poster_path
+      }" class="img-fluid pourfloat" alt="${data.title}"></a>
           <p class="affiche_et_acteur"><strong>Genres:</strong> ${data.genres.map((genre) => genre.name).join(", ")}<br>
           <strong>Synopsis:</strong> ${data.overview}
           <br><strong>Date de sortie:</strong> ${new Date(
-            data.release_date
-          ).toLocaleDateString("fr")}
+        data.release_date
+      ).toLocaleDateString("fr")}
           <br><strong>Note:</strong> ${data.vote_average} / 10</p>
         </div>
       `;
@@ -207,11 +204,11 @@ fetch("/credits.json")
       col.className = "col-3 text-center";
       // "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
       col.innerHTML = `
-        <div class="cast-member">
-        ${
-          data.cast[i].profile_path === null
-            ? `<img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
-            : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
+        <div class="cast-member col-12 col-md-6 col-lg-4 card mx-auto">
+
+        ${data.cast[i].profile_path === null
+          ? `<img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg" class="vignette card-img-top img-fluid mb-2" alt="${data.cast[i].name}">`
+          : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="vignette img-fluid card-img-top mb-2" alt="${data.cast[i].name}">`
         }
           <h5>${data.cast[i].name}</h5>
           <p class="text-muted text-center">comme ${data.cast[i].character}</p>
