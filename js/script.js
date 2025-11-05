@@ -207,15 +207,13 @@ fetch("/credits.json")
       col.className = "col-3 text-center";
       // "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
       col.innerHTML = `
-        <div class="cast-member col-12 col-md-6 col-lg-4 card mx-auto">
-
+        <div class="cast-member">
         ${
           data.cast[i].profile_path === null
-            ? `<img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg" class="vignette card-img-top img-fluid mb-2" alt="${data.cast[i].name}">`
-            : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="vignette img-fluid card-img-top mb-2" alt="${data.cast[i].name}">`
+            ? `<img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
+            : `<img src="https://media.themoviedb.org/t/p/w138_and_h175_face/${data.cast[i].profile_path}" class="img-fluid rounded-circle mb-2" alt="${data.cast[i].name}">`
         }
-          <h2>${data.cast[i].name}</h2>
-          
+          <h5>${data.cast[i].name}</h5>
           <p class="text-muted text-center">comme ${data.cast[i].character}</p>
         </div>`;
       // console.log(data.cast[i].character);
