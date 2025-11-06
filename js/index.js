@@ -1,6 +1,6 @@
 "use strict";
 
-let URL = "/data/data.json";
+let URL = "data/data.json";
 // let affiche_table = document.getElementById("affiche_table");
 
 //Partie index pour tous les films
