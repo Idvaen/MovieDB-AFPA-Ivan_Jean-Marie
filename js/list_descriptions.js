@@ -1,35 +1,28 @@
 "use strict";
 
-let URL = "/data/data.json";
+let URL = "data/data.json";
 // let affiche_table = document.getElementById("affiche_table");
 
 //Partie description pour chaque film
-fetch(URL)
-  .then((response) => response.json())
-  .then(function (data) {
-    console.log("La requête GET a abouti avec la réponse JSON : ", data);
-    for (let i in data.results) {
-      // console.log(data.results[i].title);
-      // console.log(data.results[i].release_date);
-      // console.log(data.results[i].poster_path);
-      // console.log(data.results[i].vote_average);
-      // console.log(data.results[i].overview);
-      // console.log(data.results[i].genre_ids.join(", "));
-      let col = document.createElement("div");
-      col.className = "col-12";
-      col.innerHTML = `
-        <div class="movie-description"  data-movie-id="${data.results[i].id}">
-          <h3>Description de ${data.results[i].title}</h3>
-          <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
-            data.results[i].poster_path
-          }" data-movie-id="${
-        data.results[i].id
-      }" class="img-fluid pourfloat size_poster movie-img" alt="${
-        data.results[i].title
-      }">
-          <p class="affiche_et_acteur" style="background-color: white;"><strong>Genres:</strong> ${data.results[
-            i
-          ].genre_ids.join(", ")}
+if (window.location.href.indexOf("descriptions.html") !== -1) {
+  fetch(URL)
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log("La requête GET a abouti avec la réponse JSON : ", data);
+      for (let i in data.results) {
+        // console.log(data.results[i].title);
+        // console.log(data.results[i].release_date);
+        // console.log(data.results[i].poster_path);
+        // console.log(data.results[i].vote_average);
+        // console.log(data.results[i].overview);
+        let col = document.createElement("div");
+        col.className = "col-12";
+        col.innerHTML = `
+        <div class="movie-description">
+          <h2 class="titre_de_listes">Description de ${data.results[i].title}</h2>
+          <a href="description.html"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path
+          }" class="img-fluid pourfloat size_poster" alt="${data.results[i].title}"></a>
+          <p class="affiche_et_acteur" style="background-color: white;"><strong>Genres:</strong> ${data.results[i].genre_ids.join(", ")}
           <br> <strong>Synopsis:</strong> ${data.results[i].overview}
           <br><strong>Date de sortie:</strong> ${new Date(
             data.results[i].release_date

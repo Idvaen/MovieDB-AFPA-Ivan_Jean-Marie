@@ -1,6 +1,6 @@
 "use strict";
 
-let URL = "/data/data.json";
+let URL = "data/data.json";
 // let affiche_table = document.getElementById("affiche_table");
 
 //Partie index pour tous les films
@@ -23,10 +23,11 @@ if (window.location.href.indexOf("index.html") !== -1) {
           }" class="img-fluid movie-img" alt="${
           data.results[i].title
         }" data-movie-id="${data.results[i].id}">
+        <h2 class="mt-2">${data.results[i].title}</h2>
           <p class="release-date">${new Date(
             data.results[i].release_date
           ).toLocaleDateString("fr")}</p>
-          <h5 class="mt-2">${data.results[i].title}</h5>
+          
             <p class="rating">Avis: <i class="fa-regular fa-star"></i> ${
               data.results[i].vote_average
             } / 10</p>

@@ -1,11 +1,25 @@
 "use strict";
 
-let URL = "/data/data.json";
+let URL = "data/data.json";
 
 
 // CREATION D'UNE FONCTION ALEATOIRE POUR L'AFFICHAGE DE L'IMAGE DE FOND DE LA PAGE D'ACCEUIL
 // Appel de la fonction
 creerArriereplan();
+
+
+// Appel de la fonction
+creerArriereplan();
+
+
+
+// fonction principale
+function creerArriereplan() {
+    let numero;
+    let ajoutBkgrd = document.getElementById("imgBgrnd");
+    numero = Math.floor(Math.random() * 3) + 1;
+    ajoutBkgrd.setAttribute("style",`background-image: url(/assets/images/background${numero}.png);`);
+}
 
 //Partie index pour tous les films
 if (window.location.href.indexOf("index.html") !== -1) {
@@ -163,7 +177,7 @@ function descriptionMovie() {
 }
 
 // Fetch list (details.json) for movie Matrix
-fetch("/details.json")
+fetch("details.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Details data fetched: ", data);
@@ -196,7 +210,7 @@ fetch("/details.json")
   });
 
 // Fetch list (credits.json) for movie Matrix
-fetch("/credits.json")
+fetch("credits.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Credits data fetched: ", data.cast);
