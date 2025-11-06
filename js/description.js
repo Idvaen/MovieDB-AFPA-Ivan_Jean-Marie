@@ -1,23 +1,28 @@
 "use strict";
 
-let URL = "data/data.json";
-// let affiche_table = document.getElementById("affiche_table");
+// // If we are on the single description page, auto-run the renderer
+if (window.location.href.indexOf("description.html") !== -1) {
+  document.addEventListener("DOMContentLoaded", descriptionMovieTP1);
+}
 
-function descriptionMovie() {
-  console.log("descriptionMovie() called");
-  // Read movie id from URL params
+function descriptionMovieTP1() {
+
+  let URL_TP1 = 'data/data.json';
+
+  console.log("descriptionMovieTP1() called");
+  // Read movie id from URL_TP1 params
   const urlParams = new URLSearchParams(window.location.search);
   const movieId = urlParams.get("id");
   if (!movieId) {
-    console.error("No movie id provided in URL");
+    console.error("No movie id provided in URL_TP1");
     return;
   }
 
   // Fetch list (data.json) and find the movie by id
-  fetch(URL)
+  fetch(URL_TP1)
     .then((response) => response.json())
     .then(function (data) {
-        console.log("Fetched data for descriptionMovie:", data);
+      console.log("Fetched data for descriptionMovieTP1:", data);
       const movie = data.results.find((m) => String(m.id) === String(movieId));
       if (!movie) {
         console.error("Movie not found for id", movieId);
@@ -37,23 +42,23 @@ function descriptionMovie() {
       }
 
       // Clear and render
-    //   container.innerHTML = "";
+      //   container.innerHTML = "";
       const col = document.createElement("div");
+      document.getElementById("backdrop_path").setAttribute("style", `background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/${movie.backdrop_path});`);
       col.className = "col-12";
       col.innerHTML = `
         <div class="movie-description">
           <div class="row">
             <div class="col-md-4">
-              <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
-                movie.poster_path
-              }" alt="${movie.title}" class="img-fluid" />
+              <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path
+        }" alt="${movie.title}" class="img-fluid" />
             </div>
             <div class="col-md-8">
               <h2>${movie.title}</h2>
               <p><strong>Synopsis:</strong> ${movie.overview}</p>
               <p><strong>Date de sortie:</strong> ${new Date(
-                movie.release_date
-              ).toLocaleDateString("fr")}</p>
+          movie.release_date
+        ).toLocaleDateString("fr")}</p>
               <p><strong>Note:</strong> ${movie.vote_average} / 10</p>
             </div>
           </div>
@@ -66,7 +71,6 @@ function descriptionMovie() {
     });
 }
 
-// // If we are on the single description page, auto-run the renderer
-if (window.location.href.indexOf("description.html") !== -1) {
-  document.addEventListener("DOMContentLoaded", descriptionMovie);
-}
+
+
+

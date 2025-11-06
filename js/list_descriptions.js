@@ -52,8 +52,3 @@ if (window.location.href.indexOf("descriptions.html") !== -1) {
       console.log("La requête GET a échoué : ", error);
     });
 }
-
-// // If we are on the single description page, auto-run the renderer
-if (window.location.href.indexOf("description.html") !== -1) {
-  document.addEventListener("DOMContentLoaded", descriptionMovie);
-}
