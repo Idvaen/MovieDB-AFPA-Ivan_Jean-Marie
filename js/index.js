@@ -1,5 +1,9 @@
 "use strict";
 
+// CREATION D'UNE FONCTION ALEATOIRE POUR L'AFFICHAGE DE L'IMAGE DE FOND DE LA PAGE D'ACCEUIL
+// Appel de la fonction
+creerArriereplan();
+
 //Partie index pour tous les films
 if (window.location.href.indexOf("index.html") !== -1) {
   fetch("data/data.json")
@@ -51,70 +55,10 @@ if (window.location.href.indexOf("index.html") !== -1) {
     });
 }
 
-
-// function descriptionMovie() {
-//   console.log("descriptionMovie() called");
-//   // Read movie id from URL params
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const movieId = urlParams.get("id");
-//   if (!movieId) {
-//     console.error("No movie id provided in URL");
-//     return;
-//   }
-
-//   // Fetch list (data.json) and find the movie by id
-//   fetch(URL)
-//     .then((response) => response.json())
-//     .then(function (data) {
-//       const movie = data.results.find((m) => String(m.id) === String(movieId));
-//       if (!movie) {
-//         console.error("Movie not found for id", movieId);
-//         return;
-//       }
-
-//       console.log("Rendering description for movie:", movie);
-
-//       // Prefer an element with id 'description-movie' if present, otherwise use .description-section .row
-//       let container = document.getElementById("description-movie");
-//       if (!container) {
-//         container = document.querySelector(".description-section .row");
-//       }
-//       if (!container) {
-//         console.error("No container found to render movie description");
-//         return;
-//       }
-
-//       // Clear and render
-//       container.innerHTML = "";
-//       const col = document.createElement("div");
-//       col.className = "col-12";
-//       col.innerHTML = `
-//         <div class="movie-description">
-//           <div class="row">
-//             <div class="col-md-4">
-//               <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${
-//                 movie.poster_path
-//               }" alt="${movie.title}" class="img-fluid" />
-//             </div>
-//             <div class="col-md-8">
-//               <h2>${movie.title}</h2>
-//               <p><strong>Synopsis:</strong> ${movie.overview}</p>
-//               <p><strong>Date de sortie:</strong> ${new Date(
-//                 movie.release_date
-//               ).toLocaleDateString("fr")}</p>
-//               <p><strong>Note:</strong> ${movie.vote_average} / 10</p>
-//             </div>
-//           </div>
-//         </div>
-//       `;
-//       container.appendChild(col);
-//     })
-//     .catch(function (error) {
-//       console.error("La requête GET a échoué : ", error);
-//     });
-// }
-
-// // // If we are on the single description page, auto-run the renderer
-// if (window.location.href.indexOf("description.html") !== -1) {
-//   document.addEventListener("DOMContentLoaded", descriptionMovie);
-// }
+// fonction principale
+function creerArriereplan() {
+  let numero;
+  let ajoutBkgrd = document.getElementById("imgBgrnd");
+  numero = Math.floor(Math.random() * 3) + 1;
+  ajoutBkgrd.setAttribute("style", `background-image: url(assets/images/background${numero}.png);`);
+}
