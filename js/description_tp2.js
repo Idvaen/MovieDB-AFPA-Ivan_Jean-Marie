@@ -1,8 +1,5 @@
 "use strict";
 
-let URL = "data/data.json";
-// let affiche_table = document.getElementById("affiche_table");
-
 // Fetch list (details.json) for movie Matrix
 fetch("data/details.json")
   .then((response) => response.json())
