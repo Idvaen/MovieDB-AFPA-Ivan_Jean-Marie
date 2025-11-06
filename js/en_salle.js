@@ -17,7 +17,7 @@ fetch(url, options)
     .then(films => { // création du jeu de données dans films
 
         for (let i = 0; i < films.results.length; i++) { // Le jeu de données étant un tableau, on boucle pour lire et afficher la liste des films
-            console.log(films.results[i]);
+            // console.log(films.results[i]);
             let col = document.createElement("div");                 // situé dans la page populaire.html
             col.className = "col-12";           // code Html à insérer dans la page populaire
             col.innerHTML = `                                       
