@@ -1,10 +1,7 @@
 "use strict";
 
-let URL = "/data/data.json";
-// let affiche_table = document.getElementById("affiche_table");
-
 // Fetch list (details.json) for movie Matrix
-fetch("/data/details.json")
+fetch("data/details.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Details data fetched: ", data);
@@ -40,7 +37,7 @@ fetch("/data/details.json")
   });
 
 // Fetch list (credits.json) for movie Matrix
-fetch("/data/credits.json")
+fetch("data/credits.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Credits data fetched: ", data.cast);
