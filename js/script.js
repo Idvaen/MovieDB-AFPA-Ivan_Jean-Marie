@@ -1,6 +1,6 @@
 "use strict";
 
-let URL = "/data/data.json";
+let URL = "data/data.json";
 
 
 // CREATION D'UNE FONCTION ALEATOIRE POUR L'AFFICHAGE DE L'IMAGE DE FOND DE LA PAGE D'ACCEUIL
@@ -163,7 +163,7 @@ function descriptionMovie() {
 }
 
 // Fetch list (details.json) for movie Matrix
-fetch("/details.json")
+fetch("details.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Details data fetched: ", data);
@@ -196,7 +196,7 @@ fetch("/details.json")
   });
 
 // Fetch list (credits.json) for movie Matrix
-fetch("/credits.json")
+fetch("credits.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Credits data fetched: ", data.cast);
