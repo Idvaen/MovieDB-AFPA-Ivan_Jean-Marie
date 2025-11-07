@@ -49,6 +49,7 @@ h2 {
   height: 60px;
 }
 
+
 /* ================= ELEMEMENTS ZONE RECHERCHE ==============================*/
 .search-section {
   padding-top: 2vh !important;
@@ -85,6 +86,18 @@ h2 {
 #loupe {
   width: 25px;
   height: 25px;
+}
+.form-control:focus {
+border-color: white !important;
+box-shadow: 0 0 0 !important;
+}
+
+/* Modification de l'arrière plan de la zone recherche pour adapter l'image à l'écran */
+@media only screen and ( max-width : 560px ) { 
+#imgBgrnd { 
+width: 100%;
+height: auto; }
+  
 }
 
 /*============= AFFICHAGE DES FILMS Movies Grid ============== */
@@ -174,11 +187,60 @@ footer p {
   align-self: center;
 }
 
-.card {
+/* .card {
   width: 25vh !important;
   margin-bottom: 3vh !important;
-}
+} */
 .titre_de_listes {
+  margin-top: 3vh;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 3vh !important;
+  font-size: 5vh !important;
+}
+.movie-description {
+  padding-top: 12vh;
+}
+
+
+/* essai carousel */
+
+
+.img {
+    margin-top: 250px;
+    width: 150px;
+    height: auto;
+    border-radius: 15px;
+    border: none;
+}
+.carousel-container{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.card_carousel {
+    
+    /* background-color: rgb(25, 0, 255); */
+    align-items: center ;
+    justify-content: center ;
+    border-radius: 20px;
+    margin-right: 0.5vh;
+}
+.carousel-track {
+    display: flex !important;
+    width: max-content;
+    animation: scroll 50s linear infinite;
+
+}
+.card_carousel:hover {
+  transform: translateY(-5px);
+}
+/* .ici{
+  flex-wrap: nowrap !important;
+} */
+@keyframes scroll {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-50%);
+    }
 }
