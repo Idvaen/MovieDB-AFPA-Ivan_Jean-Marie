@@ -15,7 +15,7 @@ if (window.location.href.indexOf("descriptions.html") !== -1) {
         let col = document.createElement("div");
         col.className = "col-12";
         col.innerHTML = `
-        <div class="movie-description" data-movie-id="${data.results[i].id}">
+        <div class="movie-description" data-movie-id="${data.results[i].id}"><br>
           <h2 class="titre_de_listes">Description de ${data.results[i].title}</h2>
           <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path
           }" class="img-fluid pourfloat size_poster movie-img" alt="${data.results[i].title}" data-movie-id="${data.results[i].id}">
@@ -24,9 +24,9 @@ if (window.location.href.indexOf("descriptions.html") !== -1) {
           <br><strong>Date de sortie:</strong> ${new Date(
             data.results[i].release_date
           ).toLocaleDateString("fr")}
-          <br><strong>Note:</strong> ${data.results[i].vote_average} / 10</p>
+          <br><strong>Note:</strong> ${parseFloat(data.results[i].vote_average).toFixed(1)} / 10</p>
         </div>
-      `;
+        `;
         document.querySelector(".description-section .row").appendChild(col);
         // If you want these description items to open the single description page when clicked,
         // navigate with the movie id in the query string (same pattern as above).
