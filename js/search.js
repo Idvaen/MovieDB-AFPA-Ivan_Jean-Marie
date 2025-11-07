@@ -8,7 +8,7 @@ function rechercherFilms() {
     //Function de recherche des films avec API
     if (!rechercheInput.value) {
         console.log("Aucun terme de recherche.");
-        document.getElementById("searchResults").innerHTML = "";
+        document.getElementById("searchResults").innerHTML = '<div class="carousel-track"></div>';
         afficherFilmsData();
         return;
     }
