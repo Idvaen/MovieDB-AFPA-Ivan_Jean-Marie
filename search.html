@@ -45,13 +45,20 @@
         <div class="search-container">
             <div class="input-group">
                 <input type="search" class="form-control" id="searchInput" placeholder="Chercher un film..." />
-                <button class="recherche" type="button">
-                    <img id="loupe" src="assets/images/loupe.png" alt="" />
+                <button class="recherche" type="button" id="searchButton" onclick="window.location.href='search.html'">
+                    <img id="loupe" src="assets/images/loupe.png" alt="loupe.png" />
                     <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                 </button>
             </div>
         </div>
     </section>
+
+
+    <div class="container">
+        <div class="row" id="searchResultsNew">
+        </div>
+    </div>
+
 
     <!-- PIED DE PAGE -->
     <footer class="mt-5 py-3 text-center">
