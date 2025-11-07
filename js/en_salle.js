@@ -10,7 +10,6 @@ const options = {
     }
 };
 
-// console.log("descriptionMovie() called");
 //   LECTURE DES FILMS POPULAIRES A PARTIR DES PARAMETRES URL
 fetch(url, options)
     .then(res => res.json())
@@ -42,20 +41,17 @@ fetch(url, options)
                 }
             });
 
+            // Gestion de l'événement click sur l'image
             const img = col.querySelector(".movie-img");
             if (img) {
                 img.addEventListener("click", function (e) {
                     // Prevent any default behaviour (if any)
                     e.preventDefault();
                     const movieId = this.dataset.movieId;
-                    // Small delay to allow CSS feedback or prevent accidental double-clicks
+                    // Petit délai pour permettre un retour visuel CSS ou éviter les double-clics accidentels
                     setTimeout(() => {
                         window.location.href = `description_TP4.html?id=${movieId}`;
                     }, 500);
-
-                    // setTimeout(() => {
-                    //   window.location.href = `description.html`;
-                    // }, 500);
                 });
             }
         }
@@ -66,9 +62,9 @@ fetch(url, options)
     });
 
 /**
- * Récupère les noms des genres à partir des IDs de genres fournis.
- * @param {Array<number>} movieGenreIds 
- */
+* Récupère les noms des genres à partir des IDs de genres fournis.
+* @param {Array<number>} movieGenreIds 
+*/
 async function GetGenres(movieGenreIds) {
     const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en';
     const options = {
@@ -79,8 +75,14 @@ async function GetGenres(movieGenreIds) {
         }
     };
     try {
+        // Exécution de la requête
         const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error("Erreur lors de la récupération des genres");
+        }
+        // Traitement de la réponse de l'API
         const data = await response.json();
+        // Vérification de la présence des genres
         let genreNames = [];
         for (let i in data.genres) {
             for (let j in movieGenreIds) {
@@ -95,4 +97,3 @@ async function GetGenres(movieGenreIds) {
         return "Genre non disponible";
     }
 }
-

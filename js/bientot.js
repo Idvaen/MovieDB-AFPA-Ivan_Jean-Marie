@@ -54,10 +54,6 @@ fetch(url, options)
                     setTimeout(() => {
                         window.location.href = `description_TP4.html?id=${movieId}`;
                     }, 500);
-
-                    // setTimeout(() => {
-                    //   window.location.href = `description.html`;
-                    // }, 500);
                 });
             }
         }
@@ -82,8 +78,14 @@ async function GetGenres(movieGenreIds) {
         }
     };
     try {
+        // Exécution de la requête
         const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error("Erreur lors de la récupération des genres");
+        }
+        // Traitement de la réponse de l'API
         const data = await response.json();
+        // Vérification de la présence des genres
         let genreNames = [];
         for (let i in data.genres) {
             for (let j in movieGenreIds) {

@@ -5,13 +5,6 @@ fetch("data/details.json")
   .then((response) => response.json())
   .then(function (data) {
     console.log("Details data fetched: ", data);
-    // console.log(data[i]);
-    // console.log(data.title);
-    // console.log(data.release_date);
-    // console.log(data.poster_path);
-    // console.log(data.vote_average);
-    // console.log(data.overview);
-    // console.log(data.genres.map((genre) => genre.name).join(", "));
     let col = document.createElement("div");
     col.className = "col-12";
     col.innerHTML = `
@@ -42,9 +35,6 @@ fetch("data/credits.json")
   .then(function (data) {
     console.log("Credits data fetched: ", data.cast);
     for (let i in data.cast) {
-      // console.log(data.cast[i].profile_path);
-      // console.log(data.cast[i].name);
-      // console.log(data.cast[i].character);
       let col = document.createElement("div");
       col.className = "col-3 text-center";
       // "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
@@ -60,7 +50,6 @@ fetch("data/credits.json")
           
           <p class="text-muted text-center">comme ${data.cast[i].character}</p>
         </div>`;
-      // console.log(data.cast[i].character);
       document.querySelector(".cast-section .row").appendChild(col);
     }
   })

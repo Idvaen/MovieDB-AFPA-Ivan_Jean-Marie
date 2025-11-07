@@ -1,11 +1,12 @@
 'use strict';
+//Function de recherche des films avec API
 
+// Récupération de l'élément de recherche
 let rechercheInput = document.getElementById("searchInput");
 rechercheInput.addEventListener("input", rechercherFilms);
 
-//Search function
+//Recherche des films
 function rechercherFilms() {
-    //Function de recherche des films avec API
     if (window.location.href.indexOf("index.html") !== -1) {
         if (!rechercheInput.value) {
             console.log("Aucun terme de recherche.");
@@ -22,6 +23,7 @@ function rechercherFilms() {
         document.getElementById("searchResults").innerHTML = "";
     }
 
+    // API de recherche de films
     console.log("Recherche en cours...");
     const url = `https://api.themoviedb.org/3/search/movie?query=${rechercheInput.value}&include_adult=false&language=en-US&page=1`;
     const options = {
@@ -32,14 +34,16 @@ function rechercherFilms() {
         }
     };
 
+    // Exécution de la requête
     fetch(url, options)
         .then(response => response.json())
         .then(data => {
-            // Process the API response
+            // Traitement de la réponse de l'API
             for (let i in data.results) {
                 // console.log("Film trouvé:", data.results[i].title);
                 // Afficher les résultats de la recherche
                 if (window.location.href.indexOf("index.html") !== -1) {
+                    // Affichage des résultats sur la page d'accueil
                     const resultsContainer = document.getElementById("searchResults");
                     resultsContainer.innerHTML += `
                     <div class="col-6">
@@ -53,23 +57,22 @@ function rechercherFilms() {
                     </div>
                 `;
 
+                    // Ajout de l'événement click sur l'image
                     const img = resultsContainer.querySelector(".movie-img");
                     if (img) {
                         img.addEventListener("click", function (e) {
-                            // Prevent any default behaviour (if any)
+                            // Empêcher tout comportement par défaut (le cas échéant)
                             e.preventDefault();
                             const movieId = this.dataset.movieId;
-                            // Small delay to allow CSS feedback or prevent accidental double-clicks
+                            // Rediriger vers la page de description après un délai
                             setTimeout(() => {
                                 window.location.href = `description_TP4.html?id=${movieId}`;
                             }, 500);
-
-                            // setTimeout(() => {
-                            //   window.location.href = `description.html`;
-                            // }, 500);
                         });
                     }
                 }
+
+                // Page de recherche
                 if (window.location.href.indexOf("search.html") !== -1) {
                     console.log("Recherche sur la page de recherche");
                     const col = document.createElement("div");
@@ -85,6 +88,8 @@ function rechercherFilms() {
                             </div>
                         </div>
                     `;
+
+                    // Ajout de la colonne aux résultats de recherche
                     document.querySelector("#searchResultsNew").appendChild(col);
 
                     // Récupération des genres
@@ -95,6 +100,7 @@ function rechercherFilms() {
                         }
                     });
 
+                    // Ajout de l'événement click sur l'image
                     const img_new = col.querySelector(".movie-img");
                     if (img_new) {
                         img_new.addEventListener("click", function (e) {
@@ -127,8 +133,14 @@ async function GetGenres(movieGenreIds) {
         }
     };
     try {
+        // Exécution de la requête
         const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error("Erreur lors de la récupération des genres");
+        }
+        // Traitement de la réponse de l'API
         const data = await response.json();
+        // Vérification de la présence des genres
         let genreNames = [];
         for (let i in data.genres) {
             for (let j in movieGenreIds) {

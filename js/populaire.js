@@ -11,10 +11,6 @@ const options = {            // options de connexion
     }
 };
 
-
-
-
-// console.log("descriptionMovie() called");
 //   LECTURE DES FILMS POPULAIRES A PARTIR DES PARAMETRES URL
 fetch(url, options)
     .then(res => res.json())
@@ -36,6 +32,8 @@ fetch(url, options)
                 ).toLocaleDateString("fr")}
                     <br><strong>Note:</strong> ${parseFloat(films.results[i].vote_average).toFixed(1)} / 10</p>
                 </div><br>`;
+
+            // Selection de la colonne
             document.querySelector(".description-section .row").appendChild(col);
 
             //Synchronisation des genres
@@ -66,8 +64,14 @@ async function GetGenres(movieGenreIds) {
         }
     };
     try {
+        // Exécution de la requête
         const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error("Erreur lors de la récupération des genres");
+        }
+        // Traitement de la réponse de l'API
         const data = await response.json();
+        // Vérification de la présence des genres
         let genreNames = [];
         for (let i in data.genres) {
             for (let j in movieGenreIds) {
