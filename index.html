@@ -25,7 +25,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav  ">
+            <div class="navbar-nav">
               <a class="nav-link" href="index.html">Acceuil</a>
               <a class="nav-link" href="liste_descriptions.html">Liste descriptions</a>
               <a class="nav-link" href="en_salle.html">Actuellement en salle</a>
@@ -43,7 +43,7 @@
       <div class="container">
         <div class="search-container">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Chercher un film..." />
+            <input type="search" class="form-control" id="searchInput" placeholder="Chercher un film..." />
             <button class="recherche" type="button">
               <img id="loupe" src="assets/images/loupe.png" alt="" />
               <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
@@ -55,6 +55,11 @@
   </div>
 
   <!-- PARTIE AFFICHAGE DES AFFICHES DE FILM -->
+  <section class="movies-section">
+    <div class="container">
+      <div class="row g-4 overflow-auto" id="searchResults"></div>
+    </div>
+  </section>
     <div class="carousel-container">
         <div class="carousel-track">
           
@@ -78,6 +83,7 @@
   <!-- <script src="js/script.js"></script> -->
   <script src="js/index.js"></script>
   <script src="js/description.js"></script>
+  <script src="js/search.js"></script>
 </body>
 
 </html>

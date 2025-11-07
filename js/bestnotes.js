@@ -25,10 +25,10 @@ fetch(url, options)
             let col = document.createElement("div");                 // situé dans la page populaire.html
             col.className = "col-12";           // code Html à insérer dans la page populaire
             col.innerHTML = `                                       
-                <div class="movie-description"><br> 
+                <div class="movie-description" data-movie-id="${films.results[i].id}"><br> 
                 <h2 class="titre_de_listes">${films.results[i].title}</h2>      
-                    <img class="img-fluid pourfloat size_poster" src="https://media.themoviedb.org/t/p/w440_and_h660_face/${films.results[i].poster_path
-                }" alt="${films.results[i].title}"/>
+                    <img class="img-fluid pourfloat size_poster movie-img" src="https://media.themoviedb.org/t/p/w440_and_h660_face/${films.results[i].poster_path
+                }" alt="${films.results[i].title}" data-movie-id="${films.results[i].id}"/>
                     <p class="synopsis"><strong>Synopsis:</strong> ${films.results[i].overview}
                     <br><strong>Date de sortie:</strong> ${new Date(
                     films.results[i].release_date
@@ -36,6 +36,22 @@ fetch(url, options)
                     <br><strong>Note:</strong> ${parseFloat(films.results[i].vote_average).toFixed(1)} / 10</p>
                 </div><br>`;
             document.querySelector(".description-section .row").appendChild(col);
+            const img = col.querySelector(".movie-img");
+            if (img) {
+                img.addEventListener("click", function (e) {
+                    // Prevent any default behaviour (if any)
+                    e.preventDefault();
+                    const movieId = this.dataset.movieId;
+                    // Small delay to allow CSS feedback or prevent accidental double-clicks
+                    setTimeout(() => {
+                        window.location.href = `description_TP4.html?id=${movieId}`;
+                    }, 500);
+
+                    // setTimeout(() => {
+                    //   window.location.href = `description.html`;
+                    // }, 500);
+                });
+            }
         }
 
     })
