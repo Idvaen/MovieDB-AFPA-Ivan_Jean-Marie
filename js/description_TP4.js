@@ -6,8 +6,6 @@ if (window.location.href.indexOf("description_TP4.html") !== -1) {
 }
 
 function descriptionMovieTP4() {
-
-
   console.log("descriptionMovieTP4() called");
   // Read movie id from URL_TP1 params
   const urlParams = new URLSearchParams(window.location.search);
@@ -66,6 +64,8 @@ function descriptionMovieTP4() {
             <div class="col-md-8">
               <h2 class="titre_de_listes">${movie.title}</h2>
               <div class="fd_paragraphe">
+              <h2>${movie.title}</h2>
+              <p><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(", ")}</p>
               <p><strong>Synopsis:</strong> ${movie.overview}</p>
               <p><strong>Date de sortie:</strong> ${new Date(
           movie.release_date
@@ -82,16 +82,12 @@ function descriptionMovieTP4() {
       console.error("La requête GET a échoué : ", error);
     });
 
-
   // Fetch list for movie credits
   fetch(URL_CREDITS, options)
     .then((response) => response.json())
     .then(function (data) {
       console.log("Credits data fetched: ", data.cast);
       for (let i in data.cast) {
-        // console.log(data.cast[i].profile_path);
-        // console.log(data.cast[i].name);
-        // console.log(data.cast[i].character);
         let col = document.createElement("div");
         col.className = "col-4 text-center";
         // "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
@@ -114,6 +110,5 @@ function descriptionMovieTP4() {
       console.error("La requête GET a échoué : ", error);
     });
 }
-
 
 
