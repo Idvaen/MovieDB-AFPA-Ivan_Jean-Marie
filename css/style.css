@@ -5,6 +5,8 @@
 /* Création des styles pour la zone de recherche */
 /* Création des styles AFFICHAGE DES FILMS Movies Grid */
 /* Création des styles pour PAGE DESCRIPTION */
+/* Création des styles pour le carousel*/
+/* création des styles pour le résultat de recherche*/
 
 /* ======= INITIALISATION DE LA PAGE ============*/
 * {
@@ -50,54 +52,55 @@ h2 {
   height: 60px;
 }
 
-
 /* ================= ELEMEMENTS ZONE RECHERCHE ==============================*/
 .search-section {
   padding-top: 2vh !important;
   height: 50vh;
   background-size: cover;
   z-index: -1 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-container {
-  margin: auto;
-  margin-top: 5vh;
-  text-align: center;
-  min-width: 60vh;
-  max-width: 60vh;
-  z-index: 1;
-}
-
-.search-container input {
-  border-radius: 25px;
-  margin-top: 20vh;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.recherche {
-  border-radius: 25px;
-  margin-top: 20vh;
-  border: none;
-  padding: 10px;
+  width: 60vh;
+  display: flex;
   background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #loupe {
   width: 25px;
   height: 25px;
+  /* border-radius: 32px; */
+}
+
+#searchButton {
+  position: relative;
+  border: none;
+  border-radius: 16px;
+  padding: 1vh;
+  background-color: white;
+}
+
+.form-control {
+  border-radius: 16px !important;
+  border: none !important;
+  background-color: white !important;
 }
 
 .form-control:focus {
-border-color: white !important;
-box-shadow: 0 0 0 !important;
+  border-color: white !important;
+  box-shadow: 0 0 0 !important;
 }
 
 /* Modification de l'arrière plan de la zone recherche pour adapter l'image à l'écran */
-@media only screen and ( max-width : 560px ) { 
-#imgBgrnd { 
-width: 100%;
-height: auto; }
-  
+@media only screen and (max-width: 560px) {
+  .search-section {
+    margin-top: 10vh;
+  }
 }
 
 /*============= AFFICHAGE DES FILMS Movies Grid ============== */
@@ -140,8 +143,9 @@ footer p {
 
 /* ================ PAGE DESCRIPTION ====================*/
 
-.description-section-page {
-  padding-top: 70px;
+.description-section-page,
+.description-section {
+  padding-top: 10vh;
 }
 
 .synopsis {
@@ -149,6 +153,10 @@ footer p {
   font-size: 40 px;
   text-align: justify;
   padding-right: 1vh;
+}
+
+.fd_paragraphe {
+  background-color: rgba(163, 154, 154, 0.7);
 }
 
 .affiche_et_acteur {
@@ -170,7 +178,7 @@ footer p {
 
 .size_poster {
   width: 200px;
-  padding-bottom: 3vh;
+  /* padding-bottom: 3vh; */
 }
 
 .fond_description {
@@ -178,69 +186,102 @@ footer p {
   margin-bottom: 3vh;
   background-color: rgba(108, 148, 235, 0.7);
   background-blend-mode: lighten;
+  background-size: cover !important;
 }
 
+/* Pour acteurs */
 .vignette {
-  width: 138px !important;
-  height: 175px !important;
-  display: flex;
-  align-self: center;
+  position: relative;
+  min-width: 138px !important;
+  min-height: 175px !important;
+  max-width: 138px !important;
+  max-height: 175px !important;
+  border: 1px black solid ;
 }
 
-/* .card {
-  width: 25vh !important;
-  margin-bottom: 3vh !important;
-} */
+.cast-member{
+  min-width: 150px !important;
+  min-height: 175px !important;
+  border: black 2px solid;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.row {
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+}
+
+.acteurs {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+  gap: 1rem !important;
+}
+
 .titre_de_listes {
   margin-top: 3vh;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 5vh !important;
 }
 .movie-description {
-  padding-top: 12vh;
+  text-align: center;
 }
 
+/*============ CAROUSEL PAGE ACCEUIL ====================*/
 
-/* essai carousel */
+.car-img {
+  width: 150px;
+  border-radius: 15px;
 
-
-.img {
-    /* margin-top: 250px; */
-    width: 150px;
-    height: auto;
-    border-radius: 15px;
-    border: none;
 }
-.carousel-container{
-    width: 100%;
-    overflow: hidden;
-    margin-top: 50px;
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
 }
 .card_carousel {
-    /* background-color: rgb(25, 0, 255); */
-    align-items: center ;
-    justify-content: center ;
-    border-radius: 20px;
-    margin-right: 0.5vh;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  margin-right: 0.5vh;
 }
-.carousel-track {
-    display: flex !important;
-    width: max-content;
-    padding-top: 1vh;
-    animation: scroll 50s linear infinite;
 
+.carousel-track {
+  display: flex !important;
+  width: max-content;
+  padding-top: 1vh;
+  animation: scroll 50s linear infinite;
 }
 .card_carousel:hover {
   transform: translateY(-5px);
 }
-/* .ici{
-  flex-wrap: nowrap !important;
-} */
+
 @keyframes scroll {
-    0%{
-        transform: translateX(0);
-    }
-    100%{
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============== AFFICHAGE RESULTAT RECHERCHE ===========*/
+#searchResults {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+}
+
+.img_resultat_search {
+  width: 150px;
+  height: auto;
+}
+
+.titre_film_recherche {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 5vh !important;
+}
+.elt_resultat {
+  border-radius: 20px;
+  border: solid 0.5vh;
 }
