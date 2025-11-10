@@ -55,7 +55,7 @@ function descriptionMovieTP1() {
             </div>
             <div class="col-md-8">
               <h2 class="titre_de_listes">${movie.title}</h2>
-              <div class="fd_paragraphe">
+              <div class="affiche_et_acteur" style="background-color: rgba(163, 154, 154, 0.7); padding: 1vh;">
               <p class="synopsis"><strong>Genres:</strong> <span class="genres-placeholder">Chargement...</span></p>
               <p class="synopsis"><strong>Synopsis:</strong> ${movie.overview}</p>
               <p class="synopsis"><strong>Date de sortie:</strong> ${new Date(
