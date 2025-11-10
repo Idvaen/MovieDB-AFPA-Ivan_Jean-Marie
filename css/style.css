@@ -5,6 +5,8 @@
 /* Création des styles pour la zone de recherche */
 /* Création des styles AFFICHAGE DES FILMS Movies Grid */
 /* Création des styles pour PAGE DESCRIPTION */
+/* Création des styles pour le carousel*/
+/* création des styles pour le résultat de recherche*/
 
 /* ======= INITIALISATION DE LA PAGE ============*/
 * {
@@ -151,6 +153,10 @@ footer p {
   padding-right: 1vh;
 }
 
+.fd_paragraphe {
+  background-color: rgba(163, 154, 154,.7);
+}
+
 .affiche_et_acteur {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40 px;
@@ -178,6 +184,8 @@ footer p {
   margin-bottom: 3vh;
   background-color: rgba(108, 148, 235, 0.7);
   background-blend-mode: lighten;
+  background-size: cover !important;
+
 }
 
 .vignette {
@@ -201,7 +209,7 @@ footer p {
 }
 
 
-/* essai carousel */
+/*============ CAROUSEL PAGE ACCEUIL ====================*/
 
 
 .img {
@@ -232,9 +240,7 @@ footer p {
 .card_carousel:hover {
   transform: translateY(-5px);
 }
-/* .ici{
-  flex-wrap: nowrap !important;
-} */
+
 @keyframes scroll {
     0%{
         transform: translateX(0);
@@ -243,3 +249,44 @@ footer p {
         transform: translateX(-50%);
     }
 }
+
+/* ============== AFFICHAGE RESULTAT RECHERCHE ===========*/
+.searchResults{
+  display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin-top: 10vh;
+    gap: .5rem;
+}
+.img_resultat_search {
+  width: 150px;
+  height: auto;
+}
+.result_recherche{
+  /* width: max-content; */
+  /* display: flex; */
+  /* display: grid; */
+  /* flex-direction: row; */
+    /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
+    margin-top: .5rem;
+    gap: .5rem;
+  /* grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr); */
+    
+}
+.titre_film_recherche{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 5vh !important;
+}
+.elt_resultat {
+  margin-top: 2vh;
+  margin-right: 2vh;
+  padding:10px;
+  border-radius: 20px;
+  width: max-content;
+  border: solid 0.5vh;
+  grid-area: 1 / 1 / 3 / 5;
+
+}
+
+
+

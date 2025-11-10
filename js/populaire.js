@@ -36,6 +36,22 @@ fetch(url, options)
                     <br><strong>Note:</strong> ${parseFloat(films.results[i].vote_average).toFixed(1)} / 10</p>
                 </div><br>`;
             document.querySelector(".description-section .row").appendChild(col);
+            const img = col.querySelector(".movie-img");
+            if (img) {
+                img.addEventListener("click", function (e) {
+                    // Prevent any default behaviour (if any)
+                    e.preventDefault();
+                    const movieId = this.dataset.movieId;
+                    // Small delay to allow CSS feedback or prevent accidental double-clicks
+                    setTimeout(() => {
+                        window.location.href = `description_TP4.html?id=${movieId}`;
+                    }, 500);
+
+                    // setTimeout(() => {
+                    //   window.location.href = `description.html`;
+                    // }, 500);
+                    });
+            }
         }
 
     })

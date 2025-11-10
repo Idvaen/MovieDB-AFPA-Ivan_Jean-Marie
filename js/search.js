@@ -33,14 +33,15 @@ function rechercherFilms() {
                 console.log("Film trouvé:", data.results[i].title);
                 // Afficher les résultats de la recherche
                 const resultsContainer = document.getElementById("searchResults");
+               
                 resultsContainer.innerHTML += `
-                    <div class="col-6">
-                        <div class="movie-info movie-description col-12 row">
-                            <h2 class="titre_de_listes">${data.results[i].title}</h2>
-                            <img class="img-fluid pourfloat size_poster movie-img" src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}" alt="${data.results[i].title}" />
-                            <p>${data.results[i].release_date}</p>
+                        <div class="col-12 col-md-6 col-lg-4 card mx-auto elt_resultat">
+
+                            <h2 class="titre_film_recherche">${data.results[i].title.slice(0,25)}</h2>
+                            <p>${new Date(data.results[i].release_date).getFullYear()}</p>
+
+                            <img class="img_resultat_search" src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}" alt="${data.results[i].title}" />
                         </div>
-                    </div>
                 `;
             }
         })
