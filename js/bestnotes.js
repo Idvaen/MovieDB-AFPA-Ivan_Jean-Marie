@@ -29,7 +29,7 @@ fetch(url, options)
                 <h2 class="titre_de_listes">${films.results[i].title}</h2>      
                     <img class="img-fluid pourfloat size_poster movie-img" src="https://media.themoviedb.org/t/p/w440_and_h660_face/${films.results[i].poster_path
                 }" alt="${films.results[i].title}" data-movie-id="${films.results[i].id}"/>
-                    <p class="synopsis"> <strong>Genres:</strong> <span class="genres-placeholder"></span> <br>
+                    <p class="affiche_et_acteur" style="background-color: white;"> <strong>Genres:</strong> <span class="genres-placeholder"></span> <br>
                     <strong>Synopsis:</strong> ${films.results[i].overview}
                     <br><strong>Date de sortie:</strong> ${new Date(
                     films.results[i].release_date

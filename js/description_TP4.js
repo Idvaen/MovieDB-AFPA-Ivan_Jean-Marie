@@ -63,7 +63,7 @@ function descriptionMovieTP4() {
             </div>
             <div class="col-md-8">
               <h2 class="titre_de_listes">${movie.title}</h2>
-              <div class="fd_paragraphe">
+              <div class="affiche_et_acteur" style="background-color: rgba(163, 154, 154, 0.7); padding: 1vh;">
               <p class="synopsis"><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(", ")}</p>
               <p class="synopsis"><strong>Synopsis:</strong> ${movie.overview}</p>
               <p class="synopsis"><strong>Date de sortie:</strong> ${new Date(
@@ -88,10 +88,9 @@ function descriptionMovieTP4() {
       console.log("Credits data fetched: ", data.cast);
       for (let i in data.cast) {
         let col = document.createElement("div");
-        col.className = "text-center";
+        col.className = "cast-member";
         // "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
         col.innerHTML = `
-        <div class="cast-member">
 
         ${data.cast[i].profile_path === null
             ? `<img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg" class="vignette" alt="${data.cast[i].name}">`
@@ -99,7 +98,7 @@ function descriptionMovieTP4() {
           }
           <h2>${data.cast[i].name}</h2>
           <p class="text-muted text-center">comme ${data.cast[i].character}</p>
-        </div>`;
+          `;
         // console.log(data.cast[i].character);
         document.querySelector(".cast-section .row").appendChild(col);
       }
