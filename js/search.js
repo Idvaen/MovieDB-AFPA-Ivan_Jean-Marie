@@ -44,20 +44,29 @@ function rechercherFilms() {
                 // Afficher les résultats de la recherche
                 if (window.location.href.indexOf("index.html") !== -1) {
                     // Affichage des résultats sur la page d'accueil
-                    const resultsContainer = document.getElementById("searchResults");
+                    const resultsContainer = document.createElement("div");
+                    resultsContainer.setAttribute("class", "elt_resultat");
                     resultsContainer.innerHTML += `
-                    <div class="col-6">
-                        <div class="movie-info movie-description col-12 row" data-movie-id="${data.results[i].id}">
-                            <h2 class="titre_de_listes">${data.results[i].title}</h2>
-                            <img class="img-fluid pourfloat size_poster movie-img" 
-                            src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}" 
-                            alt="${data.results[i].title}" data-movie-id="${data.results[i].id}"/>
-                            <p>${data.results[i].release_date}</p>
-                        </div>
-                `;
+                            <br>
+                            <div class="movie-info movie-description" data-movie-id="${data.results[i].id}">
+                                <h2 style="font-size: 1.5rem;">${data.results[i].title} <span>(${data.results[i].release_date.slice(0, 4)})</span></h2>
+                                ${data.results[i].poster_path ? `<img class="img-fluid size_poster movie-img"src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}"` : `<img class="img-fluid size_poster movie-img"src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"`}
+                                alt="${data.results[i].title}" data-movie-id="${data.results[i].id}"/><br>
+                                <strong>Genres: </strong><span class="genres-placeholder"></span>
+                            </div><br>
+                    `;
+
+                    // Récupération des genres
+                    GetGenres(data.results[i].genre_ids).then(genres => {
+                        const genresPlaceholder = resultsContainer.querySelector('.genres-placeholder');
+                        if (genresPlaceholder) {
+                            genresPlaceholder.textContent = genres;
+                        }
+                    });
 
                     // Ajout de l'événement click sur l'image
                     const img = resultsContainer.querySelector(".movie-img");
+                    console.log(img);
                     if (img) {
                         img.addEventListener("click", function (e) {
                             // Empêcher tout comportement par défaut (le cas échéant)
@@ -69,7 +78,10 @@ function rechercherFilms() {
                             }, 500);
                         });
                     }
+                    document.getElementById("searchResults").appendChild(resultsContainer);
                 }
+
+
 
                 // Page de recherche
                 if (window.location.href.indexOf("search.html") !== -1) {
@@ -80,10 +92,9 @@ function rechercherFilms() {
                     <div class="col-6">
                             <div class="movie-info movie-description col-12 row" data-movie-id="${data.results[i].id}">
                                 <h2 style="font-size: 1.5rem;">${data.results[i].title} <span>(${data.results[i].release_date.slice(0, 4)})</span></h2>
-                                <img class="img-fluid size_poster movie-img" 
-                                src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}" 
+                                ${data.results[i].poster_path ? `<img class="img-fluid size_poster movie-img"src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}"` : `<img class="img-fluid size_poster movie-img"src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"`}
                                 alt="${data.results[i].title}" data-movie-id="${data.results[i].id}"/>
-                                <p><strong>Genres:</strong> <span class="genres-placeholder"></span></p>
+                                <p><strong>Genres: </strong> <span class="genres-placeholder"></span></p>
                             </div>
                         </div>
                     `;
@@ -148,7 +159,7 @@ async function GetGenres(movieGenreIds) {
                 }
             }
         }
-        return genreNames.join(", ");
+        return genreNames.length == 0 ? "Genre non disponible" : genreNames.join(", ");
     } catch (error) {
         console.error("Erreur lors de la récupération des genres :", error);
         return "Genre non disponible";
