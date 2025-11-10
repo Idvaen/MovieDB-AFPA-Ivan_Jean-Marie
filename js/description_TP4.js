@@ -62,6 +62,8 @@ function descriptionMovieTP4() {
         }" alt="${movie.title}" class="img-fluid" />
             </div>
             <div class="col-md-8">
+              <h2 class="titre_de_listes">${movie.title}</h2>
+              <div class="fd_paragraphe">
               <h2>${movie.title}</h2>
               <p><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(", ")}</p>
               <p><strong>Synopsis:</strong> ${movie.overview}</p>
@@ -69,7 +71,8 @@ function descriptionMovieTP4() {
           movie.release_date
         ).toLocaleDateString("fr")}</p>
               <p><strong>Note:</strong> ${movie.vote_average} / 10</p>
-            </div>
+              </div>
+              </div>
           </div>
         </div>
       `;
@@ -86,7 +89,7 @@ function descriptionMovieTP4() {
       console.log("Credits data fetched: ", data.cast);
       for (let i in data.cast) {
         let col = document.createElement("div");
-        col.className = "col-3 text-center";
+        col.className = "col-4 text-center";
         // "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
         col.innerHTML = `
         <div class="cast-member col-12 col-md-6 col-lg-4 card mx-auto">

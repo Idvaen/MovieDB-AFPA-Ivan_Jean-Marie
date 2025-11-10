@@ -54,7 +54,6 @@ function rechercherFilms() {
                             alt="${data.results[i].title}" data-movie-id="${data.results[i].id}"/>
                             <p>${data.results[i].release_date}</p>
                         </div>
-                    </div>
                 `;
 
                     // Ajout de l'événement click sur l'image

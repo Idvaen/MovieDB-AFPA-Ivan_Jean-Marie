@@ -29,22 +29,22 @@ function afficherFilmsData() {
 
 
           // Add click listener to the image/card to navigate to the description page with the movie id
-          // const img = col.querySelector(".movie-img");
-          // if (img) {
-          //   img.addEventListener("click", function (e) {
-          //     // Prevent any default behaviour (if any)
-          //     e.preventDefault();
-          //     const movieId = this.dataset.movieId;
-          //     // Small delay to allow CSS feedback or prevent accidental double-clicks
-          //     setTimeout(() => {
-          //       window.location.href = `description.html?id=${movieId}`;
-          //     }, 500);
+          const img = col.querySelector(".movie-img");
+          if (img) {
+            img.addEventListener("click", function (e) {
+              // Prevent any default behaviour (if any)
+              e.preventDefault();
+              const movieId = this.dataset.movieId;
+              // Small delay to allow CSS feedback or prevent accidental double-clicks
+              setTimeout(() => {
+                window.location.href = `description.html?id=${movieId}`;
+              }, 500);
 
-          //     // setTimeout(() => {
-          //     //   window.location.href = `description.html`;
-          //     // }, 500);
-          //   });
-          // }
+              // setTimeout(() => {
+              //   window.location.href = `description.html`;
+              // }, 500);
+            });
+          }
         }
       })
       .catch(function (error) {
