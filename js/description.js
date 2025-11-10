@@ -56,14 +56,12 @@ function descriptionMovieTP1() {
             <div class="col-md-8">
               <h2 class="titre_de_listes">${movie.title}</h2>
               <div class="fd_paragraphe">
+              <p class="synopsis"><strong>Genres:</strong> <span class="genres-placeholder">Chargement...</span></p>
               <p class="synopsis"><strong>Synopsis:</strong> ${movie.overview}</p>
-              <h2>${movie.title}</h2><br>
-              <p><strong>Genres:</strong> <span class="genres-placeholder">Chargement...</span></p>
-              <p><strong>Synopsis:</strong> ${movie.overview}</p>
-              <p><strong>Date de sortie:</strong> ${new Date(
+              <p class="synopsis"><strong>Date de sortie:</strong> ${new Date(
           movie.release_date
         ).toLocaleDateString("fr")}</p>
-              <p><strong>Note:</strong>${parseFloat(movie.vote_average).toFixed(1)} / 10</p>
+              <p class="synopsis"><strong>Note:</strong>${parseFloat(movie.vote_average).toFixed(1)} / 10</p>
               </div>
               </div>
           </div>

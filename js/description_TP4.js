@@ -64,13 +64,12 @@ function descriptionMovieTP4() {
             <div class="col-md-8">
               <h2 class="titre_de_listes">${movie.title}</h2>
               <div class="fd_paragraphe">
-              <h2>${movie.title}</h2>
-              <p><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(", ")}</p>
-              <p><strong>Synopsis:</strong> ${movie.overview}</p>
-              <p><strong>Date de sortie:</strong> ${new Date(
+              <p class="synopsis"><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(", ")}</p>
+              <p class="synopsis"><strong>Synopsis:</strong> ${movie.overview}</p>
+              <p class="synopsis"><strong>Date de sortie:</strong> ${new Date(
           movie.release_date
         ).toLocaleDateString("fr")}</p>
-              <p><strong>Note:</strong> ${movie.vote_average} / 10</p>
+              <p class="synopsis"><strong>Note:</strong> ${movie.vote_average} / 10</p>
               </div>
               </div>
           </div>
