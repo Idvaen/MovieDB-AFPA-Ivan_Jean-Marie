@@ -104,7 +104,7 @@ h2 {
     float: none;
     padding-right: none;
   }
-  .movie-description{
+  .movie-description {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -154,7 +154,7 @@ footer p {
 .description-section-page,
 .description-section {
   padding-top: 10vh;
-} 
+}
 
 .affiche_et_acteur {
   font-family: Arial, Helvetica, sans-serif;
@@ -240,11 +240,22 @@ footer p {
   width: 150px;
   border-radius: 15px;
 }
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
 .carousel-container {
   width: 100%;
   overflow: hidden;
-  margin-top: 50px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
+
 .card_carousel {
   align-items: center;
   justify-content: center;
@@ -253,11 +264,16 @@ footer p {
 }
 
 .carousel-track {
+  transition: transform 0.3s ease-in-out;
+  animation: none;
   display: flex !important;
   width: max-content;
   padding-top: 1vh;
   animation: scroll 50s linear infinite;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
+
 .card_carousel:hover {
   transform: translateY(-5px);
 }
