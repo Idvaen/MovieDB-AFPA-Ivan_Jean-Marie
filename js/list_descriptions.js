@@ -14,7 +14,7 @@ if (window.location.href.indexOf("liste_descriptions.html") !== -1) {
         <div class="movie-description" data-movie-id="${data.results[i].id}"><br>
           <h2 class="titre_de_listes">Description de ${data.results[i].title}</h2>
           <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path
-          }" class="img-fluid pourfloat size_poster movie-img" alt="${data.results[i].title}" data-movie-id="${data.results[i].id}">
+          }" class="img-fluid pourfloat size_poster movie-img clickable" alt="${data.results[i].title}" data-movie-id="${data.results[i].id}">
           <p class="affiche_et_acteur" style="background-color: white;"><strong>Genres:</strong> <span class="genres-placeholder">Chargement...</span>
           <br> <strong>Synopsis:</strong> ${data.results[i].overview}
           <br><strong>Date de sortie:</strong> ${new Date(

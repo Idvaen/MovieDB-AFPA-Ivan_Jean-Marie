@@ -306,3 +306,7 @@ footer p {
   border-radius: 20px;
   border: solid 0.5vh;
 }
+
+.clickable {
+  cursor: pointer;
+}

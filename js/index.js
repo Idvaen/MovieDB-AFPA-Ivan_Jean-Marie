@@ -19,7 +19,7 @@ function afficherFilmsData() {
           col.innerHTML = `
           <div class="card_carousel" data-movie-id="${data.results[i].id}">      
           <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${data.results[i].poster_path
-            }" class="car-img movie-img" alt="${data.results[i].title
+            }" class="car-img movie-img clickable" alt="${data.results[i].title
             }" data-movie-id="${data.results[i].id}" >
           </div>
       `; // fin de l'insertion du texte dans la DIV

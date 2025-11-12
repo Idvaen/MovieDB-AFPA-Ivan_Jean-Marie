@@ -15,13 +15,6 @@ function rechercherFilms() {
             return;
         }
     }
-    if (document.getElementById("searchResultsNew")) {
-        document.getElementById("searchResultsNew").innerHTML = "";
-    }
-
-    if (document.getElementById("searchResults")) {
-        document.getElementById("searchResults").innerHTML = "";
-    }
 
     // API de recherche de films
     console.log("Recherche en cours...");
@@ -38,6 +31,24 @@ function rechercherFilms() {
     fetch(url, options)
         .then(response => response.json())
         .then(data => {
+            if (document.getElementById("searchResults") && data.results.length === 0) {
+                const noResultsDiv = document.createElement("div");
+                console.log("Aucun résultat");
+                noResultsDiv.innerHTML = "<p><strong>Aucun résultat</strong></p>";
+                document.getElementById("searchResults").appendChild(noResultsDiv);
+            }
+
+            if (document.getElementById("searchResultsNew") && data.results.length === 0) {
+                const noResultsDiv = document.createElement("div");
+                console.log("Aucun résultat");
+                noResultsDiv.innerHTML = "<p><strong>Aucun résultat</strong></p>";
+                document.getElementById("searchResultsNew").appendChild(noResultsDiv);
+            }
+            if (document.getElementById("searchResultsNew"))
+                document.getElementById("searchResultsNew").innerHTML = "";
+
+            if (document.getElementById("searchResults"))
+                document.getElementById("searchResults").innerHTML = "";
             // Traitement de la réponse de l'API
             for (let i in data.results) {
                 // console.log("Film trouvé:", data.results[i].title);
@@ -50,7 +61,7 @@ function rechercherFilms() {
                             <br>
                             <div class="movie-info movie-description" data-movie-id="${data.results[i].id}">
                                 <h2 style="font-size: 1.5rem;">${data.results[i].title} <span>(${data.results[i].release_date.slice(0, 4)})</span></h2>
-                                ${data.results[i].poster_path ? `<img class="img-fluid size_poster movie-img"src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}"` : `<img class="img-fluid size_poster movie-img"src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"`}
+                                ${data.results[i].poster_path ? `<img class="img-fluid size_poster movie-img clickable" src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}"` : `<img class="img-fluid size_poster movie-img"src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"`}
                                 alt="${data.results[i].title}" data-movie-id="${data.results[i].id}"/><br>
                                 <strong>Genres: </strong><span class="genres-placeholder"></span>
                             </div><br>
@@ -66,7 +77,7 @@ function rechercherFilms() {
 
                     // Ajout de l'événement click sur l'image
                     const img = resultsContainer.querySelector(".movie-img");
-                    console.log(img);
+                    // console.log(img);
                     if (img) {
                         img.addEventListener("click", function (e) {
                             // Empêcher tout comportement par défaut (le cas échéant)
@@ -85,6 +96,12 @@ function rechercherFilms() {
 
                 // Page de recherche
                 if (window.location.href.indexOf("search.html") !== -1) {
+                    if (document.getElementById("searchResultsNew") && data.results.length === 0) {
+                        const noResultsDiv = document.createElement("div");
+                        console.log("Aucun résultat");
+                        noResultsDiv.innerHTML = "<p><strong>Aucun résultat</strong></p>";
+                        document.getElementById("searchResultsNew").appendChild(noResultsDiv);
+                    }
                     console.log("Recherche sur la page de recherche");
                     const col = document.createElement("div");
                     col.classList.add("col-4");
@@ -92,7 +109,7 @@ function rechercherFilms() {
                     <div class="col-6">
                             <div class="movie-info movie-description col-12 row" data-movie-id="${data.results[i].id}">
                                 <h2 style="font-size: 1.5rem;">${data.results[i].title} <span>(${data.results[i].release_date.slice(0, 4)})</span></h2>
-                                ${data.results[i].poster_path ? `<img class="img-fluid size_poster movie-img"src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}"` : `<img class="img-fluid size_poster movie-img"src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"`}
+                                ${data.results[i].poster_path ? `<img class="img-fluid size_poster movie-img clickable" src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}"` : `<img class="img-fluid size_poster movie-img"src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"`}
                                 alt="${data.results[i].title}" data-movie-id="${data.results[i].id}"/>
                                 <p><strong>Genres: </strong> <span class="genres-placeholder"></span></p>
                             </div>

@@ -50,7 +50,6 @@ function descriptionMovieTP4() {
       }
 
       // Clear and render
-      //   container.innerHTML = "";
       const col = document.createElement("div");
       document.getElementById("backdrop_path").setAttribute("style", `background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/${movie.backdrop_path});`);
       col.className = "col-12 backdrop_img";
@@ -69,7 +68,7 @@ function descriptionMovieTP4() {
               <p class="synopsis"><strong>Date de sortie:</strong> ${new Date(
           movie.release_date
         ).toLocaleDateString("fr")}</p>
-              <p class="synopsis"><strong>Note:</strong> ${movie.vote_average} / 10</p>
+              <p class="synopsis"><strong>Note:</strong> ${parseFloat(movie.vote_average).toFixed(1)} / 10</p>
               </div>
               </div>
           </div>
