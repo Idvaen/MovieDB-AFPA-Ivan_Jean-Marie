@@ -28,9 +28,15 @@ function rechercherFilms() {
     };
 
     // Exécution de la requête
-    fetch(url, options)
+    fetch(url, options) //0.002
         .then(response => response.json())
         .then(data => {
+            if (document.getElementById("searchResults"))
+                document.getElementById("searchResults").innerHTML = "";
+
+            if (document.getElementById("searchResultsNew"))
+                document.getElementById("searchResultsNew").innerHTML = "";
+
             if (document.getElementById("searchResults") && data.results.length === 0) {
                 const noResultsDiv = document.createElement("div");
                 console.log("Aucun résultat");
@@ -44,11 +50,9 @@ function rechercherFilms() {
                 noResultsDiv.innerHTML = "<p><strong>Aucun résultat</strong></p>";
                 document.getElementById("searchResultsNew").appendChild(noResultsDiv);
             }
-            if (document.getElementById("searchResultsNew"))
-                document.getElementById("searchResultsNew").innerHTML = "";
 
-            if (document.getElementById("searchResults"))
-                document.getElementById("searchResults").innerHTML = "";
+
+
             // Traitement de la réponse de l'API
             for (let i in data.results) {
                 // console.log("Film trouvé:", data.results[i].title);
@@ -161,7 +165,7 @@ async function GetGenres(movieGenreIds) {
     };
     try {
         // Exécution de la requête
-        const response = await fetch(url, options);
+        const response = await fetch(url, options);//0.00001
         if (!response.ok) {
             throw new Error("Erreur lors de la récupération des genres");
         }
